@@ -28,6 +28,7 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
                   let diferençaCol = colOrigem - colDestino;
                   if (diferençaCol == -2){ //movimentou para direita
                         comerPeça(linOrigem-1, colOrigem+1);
+                        
                   }
                   if (diferençaCol == 2){ //movimentou para esquerda
                         comerPeça(linOrigem-1, colOrigem+1);

@@ -8,83 +8,110 @@
     <link rel="icon" type="image/png" href="imagens/rainha.png">
     <script src="myscript.js"></script>
     <title> Damas </title>
+    <script>
+        var img = '<img class="ask" src="imagens/white.png">';
+    </script>
 </head>
 <body>
-    <div>
+    <section> 
         <h1>
             <img src="imagens/rainha.png" width="40px"> 
             Jogo de Damas 
             <img src="imagens/rainha.png" width="40px">
         </h1>
+    <div id="jogo"> 
+            <div id="ceminterio">
+            </div>
+            <div id="tabuleiro">
+                <table>
+                    <tr>
+                        <td class="house_white" onclick="clickCelula(7,0)"></td>
+                        <td class="house_black" id="71" onclick="clickCelula(7,1)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(7,2)"></td>
+                        <td class="house_black" id="73" onclick="clickCelula(7,3)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(7,4)"></td>
+                        <td class="house_black" id="75" onclick="clickCelula(7,5)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(7,6)"></td>
+                        <td class="house_black" id="77" onclick="clickCelula(7,7)"><img class="ask" src="imagens/black.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="house_black" id="60" onclick="clickCelula(6,0)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(6,1)">61</td>
+                        <td class="house_black" id="62" onclick="clickCelula(6,2)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(6,3)">63</td>
+                        <td class="house_black" id="64" onclick="clickCelula(6,4)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(6,5)">65</td>
+                        <td class="house_black" id="66" onclick="clickCelula(6,6)"><img class="ask" src="imagens/black.png"></td></td>
+                        <td class="house_white" onclick="clickCelula(6,7)">67</td> 
+                    </tr>  
+                    <tr>  
+                        <td class="house_white" onclick="clickCelula(5,0)">50</td>
+                        <td class="house_black" id="51" onclick="clickCelula(5,1)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(5,2)">52</td>
+                        <td class="house_black" id="53" onclick="clickCelula(5,3)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(5,4)">54</td>
+                        <td class="house_black" id="55" onclick="clickCelula(5,5)"><img class="ask" src="imagens/black.png"></td>
+                        <td class="house_white" onclick="clickCelula(5,6)">56</td>
+                        <td class="house_black" id="57" onclick="clickCelula(5,7)"><img class="ask" src="imagens/black.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="house_black" onclick="clickCelula(4,0)">40</td>
+                        <td class="house_white" onclick="clickCelula(4,1)">41</td>
+                        <td class="house_black" onclick="clickCelula(4,2)">42</td>
+                        <td class="house_white" onclick="clickCelula(4,3)">43</td>
+                        <td class="house_black" onclick="clickCelula(4,4)">44</td>
+                        <td class="house_white" onclick="clickCelula(4,5)">45</td>
+                        <td class="house_black" onclick="clickCelula(4,6)">46</td>
+                        <td class="house_white" onclick="clickCelula(4,7)">47</td>
+                    </tr>  
+                    <tr>
+                        <td class="house_white" onclick="clickCelula(3,0)">30</td>
+                        <td class="house_black" onclick="clickCelula(3,1)">31</td>
+                        <td class="house_white" onclick="clickCelula(3,2)">32</td>
+                        <td class="house_black" onclick="clickCelula(3,3)">33</td>
+                        <td class="house_white" onclick="clickCelula(3,4)">34</td>
+                        <td class="house_black" onclick="clickCelula(3,5)">35</td>
+                        <td class="house_white" onclick="clickCelula(3,6)">36</td>
+                        <td class="house_black" onclick="clickCelula(3,7)">37</td>
+                    </tr>   
+                    <tr>
+                        <td class="house_black" id="20" onclick="clickCelula(2,0)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(2,1)">21</td>
+                        <td class="house_black" id="22" onclick="clickCelula(2,2)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(2,3)">23</td>
+                        <td class="house_black" id="24" onclick="clickCelula(2,4)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(2,5)">25</td>
+                        <td class="house_black" id="26" onclick="clickCelula(2,6)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(2,7)">27</td> 
+                    </tr>  
+                    <tr> 
+                        <td class="house_white" onclick="clickCelula(1,0)">10</td>
+                        <td class="house_black" id="11" onclick="clickCelula(1,1)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(1,2)">12</td>
+                        <td class="house_black" id="13" onclick="clickCelula(1,3)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(1,4)">14</td>
+                        <td class="house_black" id="15" onclick="clickCelula(1,5)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(1,6)">16</td>
+                        <td class="house_black" id="17" onclick="clickCelula(1,7)"><img class="ask" src="imagens/white.png"></td>
+                    </tr> 
+                    <tr>    
+                        <td class="house_black" id="00" onclick="clickCelula(0,0)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(0,1)">01</td>
+                        <td class="house_black" id="02" onclick="clickCelula(0,2)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(0,3)">03</td>
+                        <td class="house_black" id="04" onclick="clickCelula(0,4)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(0,5)">05</td>
+                        <td class="house_black" id="06" onclick="clickCelula(0,6)"><img class="ask" src="imagens/white.png"></td>
+                        <td class="house_white" onclick="clickCelula(0,7)">07</td> 
+                    </tr> 
+                </table>
+                
+            </div>  
+            <div id="ceminterio2">
+            </div>
     </div>
-    <div id="tabuleiro" style="overflow-x:auto;" >
-        <table>
-            <tr></tr>
-                <td class="house_black"> 10 </td>
-                <td class="house_white"> 11 </td>
-                <td class="house_black"> 12 </td>
-                <td class="house_white"> 13 </td>
-                <td class="house_black"> 14 </td>
-                <td class="house_white"> 15 </td>  
-                <td class="house_black"> 16 </td>
-                <td class="house_white"> 17 </td>
-            <tr></tr>
-                <td class="house_white"> 20 </td>
-                <td class="house_black"> 21 </td>
-                <td class="house_white"> 22 </td>
-                <td class="house_black"> 23 </td>
-                <td class="house_white"> 24 </td>
-                <td class="house_black"> 25 </td>
-                <td class="house_white"> 26 </td>
-                <td class="house_black"> 27 </td>
-            <tr></tr>
-                <td class="house_black"> 30 </td>
-                <td class="house_white"> 31 </td>
-                <td class="house_black"> 32 </td>
-                <td class="house_white"> 33 </td>
-                <td class="house_black"> 34 </td>
-                <td class="house_white"> 35 </td>
-                <td class="house_black"> 36 </td>
-                <td class="house_white"> 37 </td>
-            <tr></tr>
-                <td class="house_white"> 40 </td>
-                <td class="house_black"> 41 </td>
-                <td class="house_white"> 42 </td>
-                <td class="house_black"> 43 </td>
-                <td class="house_white"> 44 </td>
-                <td class="house_black"> 45 </td>
-                <td class="house_white"> 46 </td>
-                <td class="house_black"> 47 </td>
-            <tr></tr>
-                <td class="house_black"> 50 </td>
-                <td class="house_white"> 51 </td>
-                <td class="house_black"> 52 </td>
-                <td class="house_white"> 53 </td>
-                <td class="house_black"> 54 </td>
-                <td class="house_white"> 55 </td>
-                <td class="house_black"> 56 </td>
-                <td class="house_white"> 57 </td>
-            <tr></tr>
-                <td class="house_white"> 60 </td>
-                <td class="house_black"> 61 </td>
-                <td class="house_white"> 62 </td>
-                <td class="house_black"> 63 </td>
-                <td class="house_white"> 64 </td>
-                <td class="house_black"> 65 </td>
-                <td class="house_white"> 66 </td>
-                <td class="house_black"> 67 </td> 
-            <tr></tr>
-                <td class="house_black"> 70 </td>
-                <td class="house_white"> 71 </td>
-                <td class="house_black"> 72 </td>
-                <td class="house_white"> 73 </td>
-                <td class="house_black"> 74 </td>
-                <td class="house_white"> 75 </td>
-                <td class="house_black"> 76 </td>
-                <td class="house_white"> 77 </td>
-            <tr></tr>   
-        </table>
-    </div>
+    </section>
+  
     
 </body>
 </html>
