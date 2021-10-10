@@ -117,7 +117,98 @@ function tornarDama(linPeça, colPeça){
       }
 }
 
-function verificaMovimentoObrigatorio(){
+function verificaMovimentoObrigatorio(linPeça, colPeça){
       //sinaliza quais peças tem obrigatoriedade de movimento
+      let podeMovimentar = false;
+      let haMovimentoObrig = false;
+      let peça = tabuleiro[linPeça][colPeça];
+      if (peça == 'B' || peça == 'DB'){
+            peça = 'B';
+            let peçaAdv = 'P';
+      }
+      if (peça == 'P' || peça == 'DP'){
+            peça = 'P';
+            let peçaAdv = 'B';
+      }
+
+      for(let lin = 0; lin <=7; lin++){
+            for(let col = 0; col <=7; col++) {  //percorre todo o tabuleiro
+                  if (tabuleiro[lin][col] == peça){ // se for o mesmo tipo de peça
+                        if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin+2][col+2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              } 
+                        }   
+                        if ((tabuleiro[lin+1][col-1] == peçaAdv || tabuleiro[lin+1][col-1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin+2][col-2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              }
+                        }  
+                  }
+                  if (tabuleiro[lin][col] == 'D'+peça){ // se for o mesmo tipo de peça
+                        if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin+2][col+2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              } 
+                        }   
+                        if ((tabuleiro[lin+1][col-1] == peçaAdv || tabuleiro[lin+1][col-1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin+2][col-2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              }
+                        } 
+
+                        if ((tabuleiro[lin-1][col+1] == peçaAdv || tabuleiro[lin-1][col+1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin-2][col+2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              } 
+                        }   
+                        if ((tabuleiro[lin-1][col-1] == peçaAdv || tabuleiro[lin-1][col-1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin-2][col-2] == 'L'){ //se pode comer uma peça
+                              haMovimentoObrig = true;
+                              if (linPeça == lin && colPeça == col){
+                                    podeMovimentar = true;
+                              }
+                        } 
+                  }
+            } 
+      }
+      //retorna true se o movimento é permitido
+      if (haMovimentoObrig && podeMovimentar){
+            return true;
+      }
+      else if (haMovimentoObrig && !podeMovimentar){
+            return false;
+      }
+      else
+            return true;
+}
+
+function clickCelula(linPeça, colPeça){
+      if (cor == naoSelecionado){ //precisa implementar essa parte da cor
+            let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
+            if (permitido) {
+                  listaMovimentos(linPeça, colPeça);
+            }
+            else{
+                  console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
+            }
+      }
+      if (cor == novaPosicao){ //precisa implementar essa parte da cor
+            //percorrer divs para saber quem é a célula com cor Selecionada pra saber a célula origem
+            moverPeça(linOrigem, colOrigem, linPeça, colPeça);
+      }
+      if (cor == selecionado){ //precisa implementar essa parte da cor
+            // retorna a cor da célula para nãoSelecionado
+      }
 }
 
