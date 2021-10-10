@@ -195,6 +195,25 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
 }
 
 function clickCelula(linPeça, colPeça){
+
+let nome = "B";
+let bloco = document.createElement('div');
+var peca = document.createElement('img');
+peca.id = "I77";
+peca.src = "imagens/"+nome+".png"
+peca.height = "42";
+peca.width = "42";
+peca.style = 'vertical-align: middle';
+bloco.appendChild(peca);
+
+var div = document.getElementById('77');
+
+div.appendChild(peca);
+
+//div.parentNode.removeChild(div);
+
+
+/*
       if (cor == naoSelecionado){ //precisa implementar essa parte da cor
             let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
             if (permitido) {
@@ -210,6 +229,11 @@ function clickCelula(linPeça, colPeça){
       }
       if (cor == selecionado){ //precisa implementar essa parte da cor
             // retorna a cor da célula para nãoSelecionado
-      }
+      } */
+}
+
+function click1(){
+      var elem = document.getElementById('I77'); 
+      elem.parentNode.removeChild(elem);
 }
 
