@@ -8,12 +8,17 @@ var tabuleiro=[
             ['P','','P','','P','','P',''],
             ['','P','','P','','P','','P']];
 
+var vezHumanoComputador = 0;
+
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
       let peça = tabuleiro[linOrigem][colOrigem];
-      tabuleiro[linOrigem][colOrigem] = 'L';
+      removePeça(linOrigem, colOrigem);
+
       if (tabuleiro[linDestino][colDestino] = 'L') {
-            tabuleiro[linDestino][colDestino] = peça;
+            tabuleiro[linDestino][colDestino] = peça;  //coloca a nova posição na matriz
+            criaPeça(linDestino, colDestino, peça);   //cria a imagem da peça
+
             let diferençaLin = linOrigem - linDestino;
             if (diferençaLin == -2){ //movimentou para cima
                   let diferençaCol = colOrigem - colDestino;
@@ -50,62 +55,132 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
 function comerPeça(linPeça, colPeça){
       //remove a peça adversaria e mostra a peça na lista lateral
       let peça = tabuleiro[linPeça][colPeça];
-      tabuleiro[linPeça][colPeça] = 'L';
+      removePeça(linPeça, colPeça);
+      
       //mostra a peça na lista lateral
+
 }
 
 function listaMovimentos(linPeça, colPeça){
       //sinaliza quais células a peça pode se mover
+      let idcelula = '';
       let peça = tabuleiro[linPeça][colPeça];
-      if (peça = 'B'){
+      if (peça == 'B'){
+            console.log('peça branca');
             if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
+
             }else if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
                         && tabuleiro[linPeça+2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça+2);
             }
 
             if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
             }else if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça+2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça-2);
             }
       }
-      if (peça = 'DB'){
+      if (peça == 'DB'){
+            console.log('dama branca');
             if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
             }else if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
                         && tabuleiro[linPeça+2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça+2);
             }
 
             if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
             }else if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça+2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça-2);
             }
 
             if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
             }else if ((tabuleiro[linPeça-1][colPeça+1] == 'P' || tabuleiro[linPeça-1][colPeça+1] == 'DP') 
                         && tabuleiro[linPeça-2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça+2);
             }
 
             if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
                   //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
             }else if ((tabuleiro[linPeça-1][colPeça-1] == 'P' || tabuleiro[linPeça-1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça-2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça-2);
             }
       }
-      if (peça = 'P'){
+      if (peça == 'P'){
+            console.log('peça preta');
+            if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
+            }else if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
+                        && tabuleiro[linPeça-2][colPeça+2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça+2);
+            }
 
+            if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
+            }else if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
+                  && tabuleiro[linPeça-2][colPeça-2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça-2);
+            }
       }
-      if (peça = 'DP'){
+      if (peça == 'DP'){
+            console.log('dama preta');
+            if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
+            }else if ((tabuleiro[linPeça+1][colPeça+1] == 'B' || tabuleiro[linPeça+1][colPeça+1] == 'DB') 
+                        && tabuleiro[linPeça+2][colPeça+2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça+2);
+            }
 
+            if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
+            }else if ((tabuleiro[linPeça+1][colPeça-1] == 'B' || tabuleiro[linPeça+1][colPeça-1] == 'DB') 
+                  && tabuleiro[linPeça+2][colPeça-2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça+2, colPeça-2);
+            }
+
+            if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
+            }else if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
+                        && tabuleiro[linPeça-2][colPeça+2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça+2);
+            }
+
+            if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
+                  //sinaliza mudando a cor da célula
+                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
+            }else if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
+                  && tabuleiro[linPeça-2][colPeça-2] == 'L'){
+                  //sinaliza mudando a cor da célula indicando que irá comer uma peça
+                  alterarCorPossivelMovimento(linPeça-2, colPeça-2);
+            }
       }
 }
 
@@ -123,13 +198,14 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
       let podeMovimentar = false;
       let haMovimentoObrig = false;
       let peça = tabuleiro[linPeça][colPeça];
+      let peçaAdv = '';
       if (peça == 'B' || peça == 'DB'){
             peça = 'B';
-            let peçaAdv = 'P';
+            peçaAdv = 'P';
       }
       if (peça == 'P' || peça == 'DP'){
             peça = 'P';
-            let peçaAdv = 'B';
+            peçaAdv = 'B';
       }
 
       for(let lin = 0; lin <=7; lin++){
@@ -195,45 +271,86 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
 }
 
 function clickCelula(linPeça, colPeça){
-
-let nome = "B";
-let bloco = document.createElement('div');
-var peca = document.createElement('img');
-peca.id = "I77";
-peca.src = "imagens/"+nome+".png"
-peca.height = "42";
-peca.width = "42";
-peca.style = 'vertical-align: middle';
-bloco.appendChild(peca);
-
-var div = document.getElementById('77');
-
-div.appendChild(peca);
-
-//div.parentNode.removeChild(div);
-
-
-/*
-      if (cor == naoSelecionado){ //precisa implementar essa parte da cor
-            let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
-            if (permitido) {
-                  listaMovimentos(linPeça, colPeça);
-            }
-            else{
-                  console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
+      let idcelula = `${linPeça}${colPeça}`;
+      let celula = document.getElementById(idcelula);
+      let cor = celula.style.backgroundColor;
+      
+      if (cor == ''){ //não está selecionado
+            limpaSelecao();
+            
+            if (tabuleiro[linPeça][colPeça] !== 'L'){
+                  let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
+                  if (permitido) {
+                        console.log('não há movimentos obrigatórios em outras células');
+                        celula.style.backgroundColor = 'rgb(11, 116, 236)';
+                        listaMovimentos(linPeça, colPeça);
+                  }
+                  else{
+                        console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
+                  }
             }
       }
-      if (cor == novaPosicao){ //precisa implementar essa parte da cor
+      else if (cor == 'rgb(11, 202, 236)'){ //ciano é uma das casas para movimentar
             //percorrer divs para saber quem é a célula com cor Selecionada pra saber a célula origem
-            moverPeça(linOrigem, colOrigem, linPeça, colPeça);
+            let idOrigem = buscarSelecionada();
+            moverPeça(idOrigem[0], idOrigem[1], linPeça, colPeça);
+
+            console.log('moveu a peça');
+            limpaSelecao();
       }
-      if (cor == selecionado){ //precisa implementar essa parte da cor
+      else if (cor == 'rgb(11, 116, 236)'){ //azul está selecionado
             // retorna a cor da célula para nãoSelecionado
-      } */
+            limpaSelecao();
+      } 
 }
 
-function click1(){
-      var elem = document.getElementById('I77'); 
+function removePeça(linPeça, colPeça){
+      tabuleiro[linPeça][colPeça] = 'L';
+      let id = `I${linPeça}${colPeça}`;
+      let elem = document.getElementById(id); 
       elem.parentNode.removeChild(elem);
+      console.log('devia ter removido a peça');
 }
 
+function criaPeça(linPeça, colPeça, tipo){
+      let idcelula = `${linPeça}${colPeça}`;
+      let id = `I${linPeça}${colPeça}`;
+      let peca = document.createElement('img');
+      peca.id = id;
+      peca.src = "imagens/"+tipo+".png"
+      peca.height = "50";
+      peca.width = "50";
+      peca.style = 'vertical-align: middle';
+
+      let celula = document.getElementById(idcelula);
+      celula.appendChild(peca);   
+}
+
+function limpaSelecao(){
+      for(let lin = 0; lin <=7; lin++){
+            for(let col = 0; col <=7; col++) {
+                  let idcelula = `${lin}${col}`;
+                  let celula = document.getElementById(idcelula);
+                  celula.style.backgroundColor = '';
+            }   
+      }
+      console.log('limpou a seleção');
+}
+
+function buscarSelecionada(){
+      for(let lin = 0; lin <=7; lin++){
+            for(let col = 0; col <=7; col++) {
+                  let idcelula = `${lin}${col}`;
+                  let celula = document.getElementById(idcelula);
+                  if (celula.style.backgroundColor == 'rgb(11, 116, 236)'){
+                        return idcelula;
+                  }
+            }   
+      }
+}
+
+function alterarCorPossivelMovimento(linPeça, colPeça){
+      let idcelula = `${linPeça}${colPeça}`;
+      let celula = document.getElementById(idcelula);
+      celula.style.backgroundColor = 'rgb(11, 202, 236)';
+}
