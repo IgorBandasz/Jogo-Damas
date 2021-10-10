@@ -5,85 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Damas </title>
-    <style>
-    </style>
+    <link rel="icon" type="image/png" href="imagens/rainha.png">
+    <script src="myscript.js"></script>
+    <title> Damas </title>
 </head>
 <body>
-    <div id="tabuleiro" style="overflow-x:auto;" >:
+    <div>
+        <h1>
+            <img src="imagens/rainha.png" width="40px"> 
+            Jogo de Damas 
+            <img src="imagens/rainha.png" width="40px">
+        </h1>
+    </div>
+    <div id="tabuleiro" style="overflow-x:auto;" >
         <table>
             <tr></tr>
-                <td id="white"> 00 </td>
-                <td id="black"> 01 </td>
-                <td id="white"> 02 </td>
-                <td id="black"> 03 </td>
-                <td id="white"> 04 </td>
-                <td id="black"> 05 </td>
-                <td id="white"> 06 </td>
-                <td id="black"> 07 </td>
+                <td class="house_black"> 10 </td>
+                <td class="house_white"> 11 </td>
+                <td class="house_black"> 12 </td>
+                <td class="house_white"> 13 </td>
+                <td class="house_black"> 14 </td>
+                <td class="house_white"> 15 </td>  
+                <td class="house_black"> 16 </td>
+                <td class="house_white"> 17 </td>
             <tr></tr>
-                <td id="black"> 10 </td>
-                <td id="white"> 11 </td>
-                <td id="black"> 12 </td>
-                <td id="white"> 13 </td>
-                <td id="black"> 14 </td>
-                <td id="white"> 15 </td>
-                <td id="black"> 16 </td>
-                <td id="white"> 17 </td>
+                <td class="house_white"> 20 </td>
+                <td class="house_black"> 21 </td>
+                <td class="house_white"> 22 </td>
+                <td class="house_black"> 23 </td>
+                <td class="house_white"> 24 </td>
+                <td class="house_black"> 25 </td>
+                <td class="house_white"> 26 </td>
+                <td class="house_black"> 27 </td>
             <tr></tr>
-                <td id="white"> 20 </td>
-                <td id="black"> 21 </td>
-                <td id="white"> 22 </td>
-                <td id="black"> 23 </td>
-                <td id="white"> 24 </td>
-                <td id="black"> 25 </td>
-                <td id="white"> 26 </td>
-                <td id="black"> 27 </td>
+                <td class="house_black"> 30 </td>
+                <td class="house_white"> 31 </td>
+                <td class="house_black"> 32 </td>
+                <td class="house_white"> 33 </td>
+                <td class="house_black"> 34 </td>
+                <td class="house_white"> 35 </td>
+                <td class="house_black"> 36 </td>
+                <td class="house_white"> 37 </td>
             <tr></tr>
-                <td id="black"> 30 </td>
-                <td id="white"> 31 </td>
-                <td id="black"> 32 </td>
-                <td id="white"> 33 </td>
-                <td id="black"> 34 </td>
-                <td id="white"> 35 </td>
-                <td id="black"> 36 </td>
-                <td id="white"> 37 </td>
+                <td class="house_white"> 40 </td>
+                <td class="house_black"> 41 </td>
+                <td class="house_white"> 42 </td>
+                <td class="house_black"> 43 </td>
+                <td class="house_white"> 44 </td>
+                <td class="house_black"> 45 </td>
+                <td class="house_white"> 46 </td>
+                <td class="house_black"> 47 </td>
             <tr></tr>
-                <td id="white"> 40 </td>
-                <td id="black"> 41 </td>
-                <td id="white"> 42 </td>
-                <td id="black"> 43 </td>
-                <td id="white"> 44 </td>
-                <td id="black"> 45 </td>
-                <td id="white"> 46 </td>
-                <td id="black"> 47 </td>
+                <td class="house_black"> 50 </td>
+                <td class="house_white"> 51 </td>
+                <td class="house_black"> 52 </td>
+                <td class="house_white"> 53 </td>
+                <td class="house_black"> 54 </td>
+                <td class="house_white"> 55 </td>
+                <td class="house_black"> 56 </td>
+                <td class="house_white"> 57 </td>
             <tr></tr>
-                <td id="black"> 50 </td>
-                <td id="white"> 51 </td>
-                <td id="black"> 52 </td>
-                <td id="white"> 53 </td>
-                <td id="black"> 54 </td>
-                <td id="white"> 55 </td>
-                <td id="black"> 56 </td>
-                <td id="white"> 57 </td>
+                <td class="house_white"> 60 </td>
+                <td class="house_black"> 61 </td>
+                <td class="house_white"> 62 </td>
+                <td class="house_black"> 63 </td>
+                <td class="house_white"> 64 </td>
+                <td class="house_black"> 65 </td>
+                <td class="house_white"> 66 </td>
+                <td class="house_black"> 67 </td> 
             <tr></tr>
-                <td id="white"> 60 </td>
-                <td id="black"> 61 </td>
-                <td id="white"> 62 </td>
-                <td id="black"> 63 </td>
-                <td id="white"> 64 </td>
-                <td id="black"> 65 </td>
-                <td id="white"> 66 </td>
-                <td id="black"> 67 </td> 
-            <tr></tr>
-                <td id="black"> 70 </td>
-                <td id="white"> 71 </td>
-                <td id="black"> 72 </td>
-                <td id="white"> 73 </td>
-                <td id="black"> 74 </td>
-                <td id="white"> 75 </td>
-                <td id="black"> 76 </td>
-                <td id="white"> 77 </td>
+                <td class="house_black"> 70 </td>
+                <td class="house_white"> 71 </td>
+                <td class="house_black"> 72 </td>
+                <td class="house_white"> 73 </td>
+                <td class="house_black"> 74 </td>
+                <td class="house_white"> 75 </td>
+                <td class="house_black"> 76 </td>
+                <td class="house_white"> 77 </td>
             <tr></tr>   
         </table>
     </div>
