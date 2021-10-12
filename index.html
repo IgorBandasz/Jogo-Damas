@@ -1,118 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="imagens/rainha.png">
-    <script src="myscript.js"></script>
-    <script src="funcoes.js"></script>
-    <title> Damas </title>
-    <script>
-        var img = '<img class="ask" src="imagens/B.png">';
-    </script>
-</head>
-<body>
-    <section> 
-        <h1>
-            <img src="imagens/rainha.png" width="40px"> 
-            Jogo de Damas 
-            <img src="imagens/rainha.png" width="40px">
-        </h1>
-    <div id="jogo"> 
-            <div id="ceminterio">
-            </div>
-            <div id="tabuleiro">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="imagens/rainha.png">
+        <script src="myscript.js"></script>
+        <script src="funcoes.js"></script>
+        <title> Damas </title>
+    </head>
+    <body>
+        <section> 
+          <h1><img src="imagens/rainha.png" width="40px">  Jogo de Damas <img src="imagens/rainha.png" width="40px"></h1>
+          <div id="jogo"> 
+          
+              <div id="ceminterio">
+                <h2> Máquina </h2>
+                <ul>
+                    <li id="P1"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P2"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P3"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P4"><img class="dead_ask" src="imagens/DP.png"></li>
+                    <li id="P5"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P6"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P7"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P8"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P9"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P10"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P11"><img class="dead_ask" src="imagens/P.png"></li>
+                    <li id="P12"><img class="dead_ask" src="imagens/P.png"></li>
+                </ul>
+              </div>
+          
+              <div id="tabuleiro">
                 <table>
-                    <tr>
-                        <td class="house_white" id="70"></td>
-                        <td class="house_black" id="71" onclick="clickCelula(7,1)"><img id="I71" class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="72"></td>
-                        <td class="house_black" id="73" onclick="clickCelula(7,3)"><img id="I73"class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="74"></td>
-                        <td class="house_black" id="75" onclick="clickCelula(7,5)"><img id="I75"class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="76"></td>
-                        <td class="house_black" id="77" onclick="clickCelula(7,7)"><img id="I77"class="ask" src="imagens/P.png"></td>
-                    </tr>
-                    <tr>
-                        <td class="house_black" id="60" onclick="clickCelula(6,0)"><img id="I60" class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="61"></td>
-                        <td class="house_black" id="62" onclick="clickCelula(6,2)"><img id="I62" class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="63"></td>
-                        <td class="house_black" id="64" onclick="clickCelula(6,4)"><img id="I64" class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="65"></td>
-                        <td class="house_black" id="66" onclick="clickCelula(6,6)"><img id="I66" class="ask" src="imagens/p.png"></td></td>
-                        <td class="house_white" id="67"></td> 
-                    </tr>  
-                    <tr>  
-                        <td class="house_white" id="50"></td>
-                        <td class="house_black" id="51" onclick="clickCelula(5,1)"><img id="I51"class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="52"></td>
-                        <td class="house_black" id="53" onclick="clickCelula(5,3)"><img id="I53"class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="54"></td>
-                        <td class="house_black" id="55" onclick="clickCelula(5,5)"><img id="I55"class="ask" src="imagens/P.png"></td>
-                        <td class="house_white" id="56"></td>
-                        <td class="house_black" id="57" onclick="clickCelula(5,7)"><img id="I57"class="ask" src="imagens/P.png"></td>
-                    </tr>
-                    <tr>
-                        <td class="house_black" id="40" onclick="clickCelula(4,0)"></td>
-                        <td class="house_white" id="41"></td>
-                        <td class="house_black" id="42" onclick="clickCelula(4,2)"></td>
-                        <td class="house_white" id="43"></td>
-                        <td class="house_black" id="44" onclick="clickCelula(4,4)"></td>
-                        <td class="house_white" id="45"></td>
-                        <td class="house_black" id="46" onclick="clickCelula(4,6)"></td>
-                        <td class="house_white" id="47"></td>
-                    </tr>  
-                    <tr>
-                        <td class="house_white" id="30"></td>
-                        <td class="house_black" id="31" onclick="clickCelula(3,1)"></td>
-                        <td class="house_white" id="32"></td>
-                        <td class="house_black" id="33" onclick="clickCelula(3,3)"></td>
-                        <td class="house_white" id="34"></td>
-                        <td class="house_black" id="35" onclick="clickCelula(3,5)"></td>
-                        <td class="house_white" id="36"></td>
-                        <td class="house_black" id="37" onclick="clickCelula(3,7)"></td>
-                    </tr>   
-                    <tr>
-                        <td class="house_black" id="20" onclick="clickCelula(2,0)"><img id="I20" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="21"></td>
-                        <td class="house_black" id="22" onclick="clickCelula(2,2)"><img id="I22" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="23"></td>
-                        <td class="house_black" id="24" onclick="clickCelula(2,4)"><img id="I24" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="25"></td>
-                        <td class="house_black" id="26" onclick="clickCelula(2,6)"><img id="I26" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="27"></td> 
-                    </tr>  
-                    <tr> 
-                        <td class="house_white" id="10"></td>
-                        <td class="house_black" id="11" onclick="clickCelula(1,1)"><img id="I11" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="12"></td>
-                        <td class="house_black" id="13" onclick="clickCelula(1,3)"><img id="I13" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="14"></td>
-                        <td class="house_black" id="15" onclick="clickCelula(1,5)"><img id="I15" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="16"></td>
-                        <td class="house_black" id="17" onclick="clickCelula(1,7)"><img id="I17" class="ask" src="imagens/B.png"></td>
-                    </tr> 
-                    <tr>    
-                        <td class="house_black" id="00" onclick="clickCelula(0,0)"><img id="I00" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="01"></td>
-                        <td class="house_black" id="02" onclick="clickCelula(0,2)"><img id="I02" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="03"></td>
-                        <td class="house_black" id="04" onclick="clickCelula(0,4)"><img id="I04" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="05"></td>
-                        <td class="house_black" id="06" onclick="clickCelula(0,6)"><img id="I06" class="ask" src="imagens/B.png"></td>
-                        <td class="house_white" id="07"></td> 
-                    </tr> 
+                  <tr>
+                      <td class="house_white" id="70"></td>
+                      <td class="house_black" id="71" onclick="clickCelula(7,1)"><img id="I71" class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="72"></td>
+                      <td class="house_black" id="73" onclick="clickCelula(7,3)"><img id="I73"class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="74"></td>
+                      <td class="house_black" id="75" onclick="clickCelula(7,5)"><img id="I75"class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="76"></td>
+                      <td class="house_black" id="77" onclick="clickCelula(7,7)"><img id="I77"class="ask" src="imagens/P.png"></td>
+                  </tr>
+                  <tr>
+                      <td class="house_black" id="60" onclick="clickCelula(6,0)"><img id="I60" class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="61"></td>
+                      <td class="house_black" id="62" onclick="clickCelula(6,2)"><img id="I62" class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="63"></td>
+                      <td class="house_black" id="64" onclick="clickCelula(6,4)"><img id="I64" class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="65"></td>
+                      <td class="house_black" id="66" onclick="clickCelula(6,6)"><img id="I66" class="ask" src="imagens/p.png"></td>
+                      <td class="house_white" id="67"></td> 
+                  </tr>  
+                  <tr>  
+                      <td class="house_white" id="50"></td>
+                      <td class="house_black" id="51" onclick="clickCelula(5,1)"><img id="I51"class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="52"></td>
+                      <td class="house_black" id="53" onclick="clickCelula(5,3)"><img id="I53"class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="54"></td>
+                      <td class="house_black" id="55" onclick="clickCelula(5,5)"><img id="I55"class="ask" src="imagens/P.png"></td>
+                      <td class="house_white" id="56"></td>
+                      <td class="house_black" id="57" onclick="clickCelula(5,7)"><img id="I57"class="ask" src="imagens/P.png"></td>
+                  </tr>
+                  <tr>
+                      <td class="house_black" id="40" onclick="clickCelula(4,0)"></td>
+                      <td class="house_white" id="41"></td>
+                      <td class="house_black" id="42" onclick="clickCelula(4,2)"></td>
+                      <td class="house_white" id="43"></td>
+                      <td class="house_black" id="44" onclick="clickCelula(4,4)"></td>
+                      <td class="house_white" id="45"></td>
+                      <td class="house_black" id="46" onclick="clickCelula(4,6)"></td>
+                      <td class="house_white" id="47"></td>
+                  </tr>  
+                  <tr>
+                      <td class="house_white" id="30"></td>
+                      <td class="house_black" id="31" onclick="clickCelula(3,1)"></td>
+                      <td class="house_white" id="32"></td>
+                      <td class="house_black" id="33" onclick="clickCelula(3,3)"></td>
+                      <td class="house_white" id="34"></td>
+                      <td class="house_black" id="35" onclick="clickCelula(3,5)"></td>
+                      <td class="house_white" id="36"></td>
+                      <td class="house_black" id="37" onclick="clickCelula(3,7)"></td>
+                  </tr>   
+                  <tr>
+                      <td class="house_black" id="20" onclick="clickCelula(2,0)"><img id="I20" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="21"></td>
+                      <td class="house_black" id="22" onclick="clickCelula(2,2)"><img id="I22" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="23"></td>
+                      <td class="house_black" id="24" onclick="clickCelula(2,4)"><img id="I24" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="25"></td>
+                      <td class="house_black" id="26" onclick="clickCelula(2,6)"><img id="I26" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="27"></td> 
+                  </tr>  
+                  <tr> 
+                      <td class="house_white" id="10"></td>
+                      <td class="house_black" id="11" onclick="clickCelula(1,1)"><img id="I11" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="12"></td>
+                      <td class="house_black" id="13" onclick="clickCelula(1,3)"><img id="I13" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="14"></td>
+                      <td class="house_black" id="15" onclick="clickCelula(1,5)"><img id="I15" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="16"></td>
+                      <td class="house_black" id="17" onclick="clickCelula(1,7)"><img id="I17" class="ask" src="imagens/B.png"></td>
+                  </tr> 
+                  <tr>    
+                      <td class="house_black" id="00" onclick="clickCelula(0,0)"><img id="I00" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="01"></td>
+                      <td class="house_black" id="02" onclick="clickCelula(0,2)"><img id="I02" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="03"></td>
+                      <td class="house_black" id="04" onclick="clickCelula(0,4)"><img id="I04" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="05"></td>
+                      <td class="house_black" id="06" onclick="clickCelula(0,6)"><img id="I06" class="ask" src="imagens/B.png"></td>
+                      <td class="house_white" id="07"></td> 
+                  </tr> 
                 </table>
-                
-            </div>  
-            <div id="ceminterio2">
-            </div>
-    </div>
-    </section>
+              </div>  
+          
+              <div id="ceminterio2">
+                <h2> Humano </h2>
+                <ul>
+                    <li id="B1"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B2"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B3"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B4"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B5"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B6"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B7"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B8"><img class="dead_ask" src="imagens/DB.png"></li>
+                    <li id="B9"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B10"><img class="dead_ask" src="imagens/B.png"></li>
+                    <li id="B11"><img class="dead_ask" src="imagens/DB.png"></li>
+                    <li id="B12"><img class="dead_ask" src="imagens/B.png"></li>
+                </ul>
+              </div>
+
+              <div id="informacoes">
+                <abbr title="Duvidas e Sujestões"> 
+                    <a onclick="javascript:popup('janela.html')">
+                        <img id="info" src="imagens/informacoes.png">
+                    </a>
+                </abbr>
+             </div>
+          </div>
+        </section>
+    </body>
   
-    
-</body>
 </html>
