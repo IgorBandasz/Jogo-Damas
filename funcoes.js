@@ -1,14 +1,4 @@
-/*var tabuleiro=[
-            ['B','','B','','B','','B',''],
-            ['','B','','B','','B','','B'],
-            ['B','','B','','B','','B',''],
-            ['','L','','L','','L','','L'],
-            ['L','','L','','L','','L',''],
-            ['','P','','P','','P','','P'],
-            ['P','','P','','P','','P',''],
-            ['','P','','P','','P','','P']];
-*/
-            var tabuleiro=[
+var tabuleiro=[
                   ['','','','','','','','','',''],
                   ['','B','','B','','B','','B','',''],
                   ['','','B','','B','','B','','B',''],
@@ -78,122 +68,155 @@ function comerPeça(linPeça, colPeça){
 function listaMovimentos(linPeça, colPeça){
       //sinaliza quais células a peça pode se mover
       let idcelula = '';
+      let movComer = false;
       let peça = tabuleiro[linPeça][colPeça];
       if (peça == 'B'){
             console.log('peça branca');
-            if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
-
-            }else if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
+            if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
                         && tabuleiro[linPeça+2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
-            }else if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
+            if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça+2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça-2);
+                  movComer = true;
             }
+
+            if (movComer == false){
+                  if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça+1);
+      
+                  }
+      
+                  if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça-1);
+                  }   
+            }
+            
       }
       else if (peça == 'DB'){
             console.log('dama branca');
-            if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
-            }else if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
-                        && tabuleiro[linPeça+2][colPeça+2] == 'L'){
+            if ((tabuleiro[linPeça+1][colPeça+1] == 'P' || tabuleiro[linPeça+1][colPeça+1] == 'DP') 
+                  && tabuleiro[linPeça+2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
-            }else if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
+            if ((tabuleiro[linPeça+1][colPeça-1] == 'P' || tabuleiro[linPeça+1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça+2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça-2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
-            }else if ((tabuleiro[linPeça-1][colPeça+1] == 'P' || tabuleiro[linPeça-1][colPeça+1] == 'DP') 
-                        && tabuleiro[linPeça-2][colPeça+2] == 'L'){
+            if ((tabuleiro[linPeça-1][colPeça+1] == 'P' || tabuleiro[linPeça-1][colPeça+1] == 'DP') 
+                  && tabuleiro[linPeça-2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
-            }else if ((tabuleiro[linPeça-1][colPeça-1] == 'P' || tabuleiro[linPeça-1][colPeça-1] == 'DP') 
+            if ((tabuleiro[linPeça-1][colPeça-1] == 'P' || tabuleiro[linPeça-1][colPeça-1] == 'DP') 
                   && tabuleiro[linPeça-2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça-2);
+                  movComer = true;
+            }
+
+            if (movComer == false){
+                  if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça+1);
+      
+                  }
+                  if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça-1);
+                  }  
+                  if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça+1);
+                  }
+                  if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça-1);
+                  }
             }
       }
       else if (peça == 'P'){
             console.log('peça preta');
-            if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
-            }else if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
-                        && tabuleiro[linPeça-2][colPeça+2] == 'L'){
+            if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
+                  && tabuleiro[linPeça-2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
-            }else if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
+            if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
                   && tabuleiro[linPeça-2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça-2);
+                  movComer = true;
+            }
+
+            if (movComer == false){ 
+                  if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça+1);
+                  }
+                  if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça-1);
+                  }
             }
       }
       else if (peça == 'DP'){
             console.log('dama preta');
-            if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça+1);
-            }else if ((tabuleiro[linPeça+1][colPeça+1] == 'B' || tabuleiro[linPeça+1][colPeça+1] == 'DB') 
-                        && tabuleiro[linPeça+2][colPeça+2] == 'L'){
+            if ((tabuleiro[linPeça+1][colPeça+1] == 'B' || tabuleiro[linPeça+1][colPeça+1] == 'DB') 
+                  && tabuleiro[linPeça+2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça+1, colPeça-1);
-            }else if ((tabuleiro[linPeça+1][colPeça-1] == 'B' || tabuleiro[linPeça+1][colPeça-1] == 'DB') 
+            if ((tabuleiro[linPeça+1][colPeça-1] == 'B' || tabuleiro[linPeça+1][colPeça-1] == 'DB') 
                   && tabuleiro[linPeça+2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça+2, colPeça-2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça+1);
-            }else if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
-                        && tabuleiro[linPeça-2][colPeça+2] == 'L'){
+            if ((tabuleiro[linPeça-1][colPeça+1] == 'B' || tabuleiro[linPeça-1][colPeça+1] == 'DB') 
+                  && tabuleiro[linPeça-2][colPeça+2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça+2);
+                  movComer = true;
             }
-
-            if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
-                  //sinaliza mudando a cor da célula
-                  alterarCorPossivelMovimento(linPeça-1, colPeça-1);
-            }else if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
+            if ((tabuleiro[linPeça-1][colPeça-1] == 'B' || tabuleiro[linPeça-1][colPeça-1] == 'DB') 
                   && tabuleiro[linPeça-2][colPeça-2] == 'L'){
                   //sinaliza mudando a cor da célula indicando que irá comer uma peça
                   alterarCorPossivelMovimento(linPeça-2, colPeça-2);
+                  movComer = true;
+            }
+
+            if (movComer == false){
+                  if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça+1);
+      
+                  }
+                  if (tabuleiro[linPeça+1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça+1, colPeça-1);
+                  }  
+                  if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça+1);
+                  }
+                  if (tabuleiro[linPeça-1][colPeça-1] == 'L'){
+                        //sinaliza mudando a cor da célula
+                        alterarCorPossivelMovimento(linPeça-1, colPeça-1);
+                  }
             }
       }
 }
@@ -227,15 +250,26 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
       for(let lin = 1; lin <=8; lin++){
             for(let col = 1; col <=8; col++) {  //percorre todo o tabuleiro
                   if (tabuleiro[lin][col] == peça){ // se for o mesmo tipo de peça
-                        if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv) 
-                        && tabuleiro[lin+2][col+2] == 'L'){ //se pode comer uma peça
+                        let lin1 = 0;
+                        let lin2 = 0;
+                        if (peça == 'B'){
+                              lin1 = lin+1;
+                              lin2 = lin+2;
+                        }
+                        else if (peça == 'P'){
+                              lin1 = lin-1;
+                              lin2 = lin-2; 
+                        }
+
+                        if ((tabuleiro[lin1][col+1] == peçaAdv || tabuleiro[lin1][col+1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin2][col+2] == 'L'){ //se pode comer uma peça
                               haMovimentoObrig = true;
                               if (linPeça == lin && colPeça == col){
                                     podeMovimentar = true;
                               } 
                         }   
-                        if ((tabuleiro[lin+1][col-1] == peçaAdv || tabuleiro[lin+1][col-1] == 'D'+peçaAdv) 
-                        && tabuleiro[lin+2][col-2] == 'L'){ //se pode comer uma peça
+                        if ((tabuleiro[lin1][col-1] == peçaAdv || tabuleiro[lin1][col-1] == 'D'+peçaAdv) 
+                        && tabuleiro[lin2][col-2] == 'L'){ //se pode comer uma peça
                               haMovimentoObrig = true;
                               if (linPeça == lin && colPeça == col){
                                     podeMovimentar = true;
@@ -446,10 +480,10 @@ function movimentoComputador(){
                               let celula = document.getElementById(idcelula);
                               if (celula.style.backgroundColor == 'rgb(11, 202, 236)'){
                                     quant++;
-
                                     if (quant == posicao){
                                           //tenta fazer o movimento na peça
                                           clickCelula(lin, col);
+                                          return true;
                                     }
                               }
                         }   
