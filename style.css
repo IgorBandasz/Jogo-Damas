@@ -5,11 +5,25 @@ h1{
     margin: auto;
     margin-top: 20px;
 }
+
 #jogo{
     margin: auto;
     display: inline-flex;
     margin-top: 20px;
 }
+
+#relogio{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    margin: auto;
+}
+
+#vez, #informacoes{
+    text-align: center;
+    margin: auto; 
+}
+
 table{
     border: 15px solid black;
     border-style: groove; 
@@ -50,7 +64,7 @@ td {
     width: 150px;
     height: 550px;
     margin: 0;
-    margin-left: 18vw;
+    margin-left: 3vw;
 }
 #ceminterio2{
     border: 10px solid black;
@@ -59,9 +73,23 @@ td {
     height: 550px;
     margin: 0;
 }
+#tools{
+    border: 10px solid black;
+    border-style: groove;
+    width: 150px;
+    height: 550px;
+    margin: 0; 
+}
 h2{
     font-family: 'Lucida Sans', sans-serif;
     font-size: large;
+    text-align: center;
+    text-decoration: underline;
+}
+#informacoes h2{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: 10px;
+    font-size: small;
     text-align: center;
     text-decoration: underline;
 }
@@ -85,3 +113,7 @@ h4{
     font-size: large;   
 }
   
+#info{
+    height: 35px;
+    width: 35px;
+}
