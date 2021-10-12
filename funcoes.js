@@ -1,4 +1,4 @@
-var tabuleiro=[
+/*var tabuleiro=[
             ['B','','B','','B','','B',''],
             ['','B','','B','','B','','B'],
             ['B','','B','','B','','B',''],
@@ -7,8 +7,20 @@ var tabuleiro=[
             ['','P','','P','','P','','P'],
             ['P','','P','','P','','P',''],
             ['','P','','P','','P','','P']];
+*/
+            var tabuleiro=[
+                  ['','','','','','','','','',''],
+                  ['','B','','B','','B','','B','',''],
+                  ['','','B','','B','','B','','B',''],
+                  ['','B','','B','','B','','B','',''],
+                  ['','','L','','L','','L','','L',''],
+                  ['','L','','L','','L','','L','',''],
+                  ['','','P','','P','','P','','P',''],
+                  ['','L','','L','','P','','P','',''],
+                  ['','','L','','L','','P','','P',''],
+                  ['','','','','','','','','','']];            
 
-var vezHumanoComputador = 0;
+var rodadaHumano = true;
 
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
@@ -17,7 +29,16 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
 
       if (tabuleiro[linDestino][colDestino] = 'L') {
             tabuleiro[linDestino][colDestino] = peça;  //coloca a nova posição na matriz
-            criaPeça(linDestino, colDestino, peça);   //cria a imagem da peça
+            
+            if (peça == 'B' && linDestino == 8){ //se a peça branca chega no topo vira dama
+                  tornarDama(linDestino, colDestino);
+            } 
+            else if (peça == 'P' && linDestino == 1){ //se a peça preta chega na base vira dama
+                  tornarDama(linDestino, colDestino);
+            }
+            else{
+                  criaPeça(linDestino, colDestino, peça);   //cria a imagem da peça
+            }
 
             let diferençaLin = linOrigem - linDestino;
             if (diferençaLin == -2){ //movimentou para cima
@@ -29,7 +50,7 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
                         comerPeça(linOrigem+1, colOrigem-1);
                   }
             }
-            if (diferençaLin == 2){ //movimentou para baixo
+            else if (diferençaLin == 2){ //movimentou para baixo
                   let diferençaCol = colOrigem - colDestino;
                   if (diferençaCol == -2){ //movimentou para direita
                         comerPeça(linOrigem-1, colOrigem+1);
@@ -38,13 +59,6 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
                   if (diferençaCol == 2){ //movimentou para esquerda
                         comerPeça(linOrigem-1, colOrigem+1);
                   }
-            }
-
-            if (peça == 'B' && linDestino == 7){ //se a peça branca chega no topo vira dama
-                  tornarDama(linDestino, colDestino);
-            } 
-            if (peça == 'P' && linDestino == 0){ //se a peça preta chega na base vira dama
-                  tornarDama(linDestino, colDestino);
             }
       }else{
             console.log('deu ruim, já há alguem na célula selecionada');
@@ -86,7 +100,7 @@ function listaMovimentos(linPeça, colPeça){
                   alterarCorPossivelMovimento(linPeça+2, colPeça-2);
             }
       }
-      if (peça == 'DB'){
+      else if (peça == 'DB'){
             console.log('dama branca');
             if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
@@ -124,7 +138,7 @@ function listaMovimentos(linPeça, colPeça){
                   alterarCorPossivelMovimento(linPeça-2, colPeça-2);
             }
       }
-      if (peça == 'P'){
+      else if (peça == 'P'){
             console.log('peça preta');
             if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
@@ -144,7 +158,7 @@ function listaMovimentos(linPeça, colPeça){
                   alterarCorPossivelMovimento(linPeça-2, colPeça-2);
             }
       }
-      if (peça == 'DP'){
+      else if (peça == 'DP'){
             console.log('dama preta');
             if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                   //sinaliza mudando a cor da célula
@@ -185,11 +199,13 @@ function listaMovimentos(linPeça, colPeça){
 }
 
 function tornarDama(linPeça, colPeça){
-      if (linPeça == 7){
+      if (linPeça == 8){
             tabuleiro[linPeça][colPeça] = 'DB';
+            criaPeça(linPeça, colPeça, 'DB'); 
       }
-      if (linPeça == 0){
+      if (linPeça == 1){
             tabuleiro[linPeça][colPeça] = 'DP';
+            criaPeça(linPeça, colPeça, 'DP'); 
       }
 }
 
@@ -203,13 +219,13 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
             peça = 'B';
             peçaAdv = 'P';
       }
-      if (peça == 'P' || peça == 'DP'){
+      else if (peça == 'P' || peça == 'DP'){
             peça = 'P';
             peçaAdv = 'B';
       }
 
-      for(let lin = 0; lin <=7; lin++){
-            for(let col = 0; col <=7; col++) {  //percorre todo o tabuleiro
+      for(let lin = 1; lin <=8; lin++){
+            for(let col = 1; col <=8; col++) {  //percorre todo o tabuleiro
                   if (tabuleiro[lin][col] == peça){ // se for o mesmo tipo de peça
                         if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv) 
                         && tabuleiro[lin+2][col+2] == 'L'){ //se pode comer uma peça
@@ -227,7 +243,7 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
                         }  
                   }
                   if (tabuleiro[lin][col] == 'D'+peça){ // se for o mesmo tipo de peça
-                        if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv) 
+                        if ((tabuleiro[lin+1][col+1] == peçaAdv || tabuleiro[lin+1][col+1] == 'D'+peçaAdv)
                         && tabuleiro[lin+2][col+2] == 'L'){ //se pode comer uma peça
                               haMovimentoObrig = true;
                               if (linPeça == lin && colPeça == col){
@@ -293,10 +309,11 @@ function clickCelula(linPeça, colPeça){
       else if (cor == 'rgb(11, 202, 236)'){ //ciano é uma das casas para movimentar
             //percorrer divs para saber quem é a célula com cor Selecionada pra saber a célula origem
             let idOrigem = buscarSelecionada();
-            moverPeça(idOrigem[0], idOrigem[1], linPeça, colPeça);
+            moverPeça(parseInt(idOrigem[0]), parseInt(idOrigem[1]), linPeça, colPeça);
 
             console.log('moveu a peça');
             limpaSelecao();
+            rodadaHumano = false;
       }
       else if (cor == 'rgb(11, 116, 236)'){ //azul está selecionado
             // retorna a cor da célula para nãoSelecionado
@@ -327,8 +344,8 @@ function criaPeça(linPeça, colPeça, tipo){
 }
 
 function limpaSelecao(){
-      for(let lin = 0; lin <=7; lin++){
-            for(let col = 0; col <=7; col++) {
+      for(let lin = 1; lin <=8; lin++){
+            for(let col = 1; col <=8; col++) {
                   let idcelula = `${lin}${col}`;
                   let celula = document.getElementById(idcelula);
                   celula.style.backgroundColor = '';
@@ -338,8 +355,8 @@ function limpaSelecao(){
 }
 
 function buscarSelecionada(){
-      for(let lin = 0; lin <=7; lin++){
-            for(let col = 0; col <=7; col++) {
+      for(let lin = 1; lin <=8; lin++){
+            for(let col = 1; col <=8; col++) {
                   let idcelula = `${lin}${col}`;
                   let celula = document.getElementById(idcelula);
                   if (celula.style.backgroundColor == 'rgb(11, 116, 236)'){
@@ -357,8 +374,8 @@ function alterarCorPossivelMovimento(linPeça, colPeça){
 
 function movimentoComputador(){
       let quant = 0;
-      for(let lin = 0; lin <=7; lin++){
-            for(let col = 0; col <=7; col++) {
+      for(let lin = 1; lin <=8; lin++){
+            for(let col = 1; col <=8; col++) {
                  if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
                         quant++;
                  }
@@ -367,8 +384,8 @@ function movimentoComputador(){
 
       let posicao = Math.floor(Math.random() * quant + 1);
 
-      for(let lin = 0; lin <=7; lin++){
-            for(let col = 0; col <=7; col++) {
+      for(let lin = 1; lin <=8; lin++){
+            for(let col = 1; col <=8; col++) {
                  if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
                         quant++;
                         if (posicao == quant){
