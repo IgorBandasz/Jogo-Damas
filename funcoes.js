@@ -354,3 +354,27 @@ function alterarCorPossivelMovimento(linPeça, colPeça){
       let celula = document.getElementById(idcelula);
       celula.style.backgroundColor = 'rgb(11, 202, 236)';
 }
+
+function movimentoComputador(){
+      let quant = 0;
+      for(let lin = 0; lin <=7; lin++){
+            for(let col = 0; col <=7; col++) {
+                 if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
+                        quant++;
+                 }
+            }
+      }
+
+      let posicao = Math.floor(Math.random() * quant + 1);
+
+      for(let lin = 0; lin <=7; lin++){
+            for(let col = 0; col <=7; col++) {
+                 if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
+                        quant++;
+                        if (posicao == quant){
+                              //tenta fazer o movimento na peça
+                        }
+                 }
+            }
+      }
+}
