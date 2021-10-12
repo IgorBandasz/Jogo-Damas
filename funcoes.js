@@ -16,8 +16,8 @@
                   ['','','L','','L','','L','','L',''],
                   ['','L','','L','','L','','L','',''],
                   ['','','P','','P','','P','','P',''],
-                  ['','L','','L','','P','','P','',''],
-                  ['','','L','','L','','P','','P',''],
+                  ['','P','','P','','P','','P','',''],
+                  ['','','P','','P','','P','','P',''],
                   ['','','','','','','','','','']];            
 
 var rodadaHumano = true;
@@ -294,7 +294,7 @@ function clickCelula(linPeça, colPeça){
       if (cor == ''){ //não está selecionado
             limpaSelecao();
             
-            if (tabuleiro[linPeça][colPeça] !== 'L'){
+            if ((tabuleiro[linPeça][colPeça] == 'B' || tabuleiro[linPeça][colPeça] == 'DB') && rodadaHumano == true){ //rodada humano
                   let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
                   if (permitido) {
                         console.log('não há movimentos obrigatórios em outras células');
@@ -305,6 +305,18 @@ function clickCelula(linPeça, colPeça){
                         console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
                   }
             }
+            else if ((tabuleiro[linPeça][colPeça] == 'P' || tabuleiro[linPeça][colPeça] == 'DP') && rodadaHumano == false){ //rodada computador
+                  let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
+                  if (permitido) {
+                        console.log('não há movimentos obrigatórios em outras células');
+                        celula.style.backgroundColor = 'rgb(11, 116, 236)';
+                        listaMovimentos(linPeça, colPeça);
+                  }
+                  else{
+                        console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
+                  }
+            }
+
       }
       else if (cor == 'rgb(11, 202, 236)'){ //ciano é uma das casas para movimentar
             //percorrer divs para saber quem é a célula com cor Selecionada pra saber a célula origem
@@ -313,12 +325,21 @@ function clickCelula(linPeça, colPeça){
 
             console.log('moveu a peça');
             limpaSelecao();
-            rodadaHumano = false;
+            if (rodadaHumano == true){
+                  rodadaHumano = false;
+            }
+            else{
+                  rodadaHumano = true;
+            }
       }
       else if (cor == 'rgb(11, 116, 236)'){ //azul está selecionado
             // retorna a cor da célula para nãoSelecionado
             limpaSelecao();
       } 
+
+      if (rodadaHumano == false){
+            movimentoComputador();
+      }
 }
 
 function removePeça(linPeça, colPeça){
@@ -364,6 +385,7 @@ function buscarSelecionada(){
                   }
             }   
       }
+      return false;
 }
 
 function alterarCorPossivelMovimento(linPeça, colPeça){
@@ -374,24 +396,70 @@ function alterarCorPossivelMovimento(linPeça, colPeça){
 
 function movimentoComputador(){
       let quant = 0;
-      for(let lin = 1; lin <=8; lin++){
-            for(let col = 1; col <=8; col++) {
-                 if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
-                        quant++;
-                 }
+
+      let idcelula = buscarSelecionada();
+      if (idcelula == false){ //não há ninguém selecionado
+            for(let lin = 1; lin <=8; lin++){
+                  for(let col = 1; col <=8; col++) {
+                       if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') { //percorre a matriz para saber quantas peças pretas tem
+                              quant++;
+                       }
+                  }
+            }
+
+            let posicao = Math.floor(Math.random() * quant + 1);  //sorteia uma peça
+            
+            quant = 0;
+            for(let lin = 1; lin <=8; lin++){
+                  for(let col = 1; col <=8; col++) {
+                       if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
+                              quant++;
+                              if (posicao == quant){
+                                    //seleciona a peça
+                                    clickCelula(lin, col);
+                              }
+                       }
+                  }
             }
       }
-
-      let posicao = Math.floor(Math.random() * quant + 1);
-
-      for(let lin = 1; lin <=8; lin++){
-            for(let col = 1; col <=8; col++) {
-                 if (tabuleiro[lin][col] == 'P' || tabuleiro[lin][col] == 'DP') {
-                        quant++;
-                        if (posicao == quant){
-                              //tenta fazer o movimento na peça
+      else if (parseInt(idcelula) > 0){  // há uma célula selecionada 
+            for(let lin = 1; lin <=8; lin++){
+                  for(let col = 1; col <=8; col++) {
+                        let idcelula = `${lin}${col}`;
+                        let celula = document.getElementById(idcelula);
+                        if (celula.style.backgroundColor == 'rgb(11, 202, 236)'){ // se for um possivel movimento, cor ciano
+                              quant++;
                         }
-                 }
+                  }   
+            }
+
+            if (quant > 0){
+                  let posicao = 1;
+                  if (quant !== 1){
+                        posicao = Math.floor(Math.random() * quant + 1);  //sorteia uma peça
+                  }
+
+                  quant = 0;
+                  for(let lin = 1; lin <=8; lin++){
+                        for(let col = 1; col <=8; col++) {
+                              let idcelula = `${lin}${col}`;
+                              let celula = document.getElementById(idcelula);
+                              if (celula.style.backgroundColor == 'rgb(11, 202, 236)'){
+                                    quant++;
+
+                                    if (quant == posicao){
+                                          //tenta fazer o movimento na peça
+                                          clickCelula(lin, col);
+                                    }
+                              }
+                        }   
+                  } 
+            }
+            else if (quant == 0){
+                  limpaSelecao();
+                  movimentoComputador();
             }
       }
+
+      
 }
