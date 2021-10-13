@@ -16,6 +16,31 @@ h1{
     font-family: 'Lucida Sans', sans-serif;
     font-size: xx-large;
     text-align: center;
+    border-color: black;
+    border-style: groove;
+    margin-top: 2em;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    height: 3.5em;
+}
+h1{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: xxx-large;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#jogo{
+    margin: auto;
+    display: inline-flex;
+    margin-top: 20px;
+}
+
+#relogio{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: xx-large;
+    text-align: center;
     margin: auto;
 }
 
@@ -26,12 +51,32 @@ h1{
 
 table{
     border: 15px solid black;
+    border-style: groove;
+    border-style: groove;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 15px;
+
+}
+
+#vez img , #informacoes img {
+    padding: 30px; 
+}
+table{
+    border: 12px solid black;
+    border-style: groove; 
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    table-layout: fixed;
+    width: 200px;
     border-style: groove; 
     margin-left: 30px;
     margin-right: 30px;
 }
 tr, td{
     margin: 4px 4px;
+    overflow: hidden;
 }
 tr{
     border: 4px solid rgb(114, 113, 113);
@@ -58,6 +103,15 @@ td {
     height: 50px;
     width: 50px;
 }
+#ask_white{
+    height: 50px;
+    width: 50px;
+}
+#ceminterio{
+    border: 10px solid black; 
+    border-style: groove;
+    border-radius: 15px;
+}
 #ceminterio{
     border: 10px solid black; 
     border-style: groove;
@@ -69,11 +123,16 @@ td {
 #ceminterio2{
     border: 10px solid black;
     border-style: groove;
+    border-radius: 15px;
     width: 150px;
     height: 550px;
     margin: 0;
 }
 #tools{
+    width: 150px;
+    height: 550px;
+    margin: 0;
+    margin-left: 3vw; 
     border: 10px solid black;
     border-style: groove;
     width: 150px;
@@ -112,7 +171,11 @@ h4{
     font-family: 'Lucida Sans', sans-serif;
     font-size: large;   
 }
-  
+#info{
+    height: 35px;
+    width: 35px;
+}
+
 #info{
     height: 35px;
     width: 35px;
