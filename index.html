@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="imagens/rainha.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
         <script src="myscript.js"></script>
         <script src="funcoes.js"></script>
         <title> Damas </title>
@@ -13,31 +16,33 @@
         <section> 
             <h1><img src="imagens/rainha.png" width="40px">  Jogo de Damas <img src="imagens/rainha.png" width="40px"></h1>          
           
-            <div id="jogo">
+           
               
             <div id="tools">
-                <div id="relogio">
+               
+                <div id="informacoes">
+                  <abbr title="Duvidas e Sujestões"> 
+                     <h2> Duvidas & Sujestões </h2>
+                     <a onclick="javascript:popup('janela.html')">
+                      <img src="imagens/informacoes.png">
+                     </a>
+                  </abbr>
+                </div>
+         
+                 <div id="relogio">
                     <h2> Tempo </h2>
                   <span>12:05</span>
                 </div>
-           
+
                 <div id="vez">
-                   <h2> Jogador </h2>
-                   <img id="info" src="imagens/smile.png">
-                </div>
-          
-                <div id="informacoes">
-                    <abbr title="Duvidas e Sujestões"> 
-                     <h2> Duvidas e Sujestões </h2>
-                        <a onclick="javascript:popup('janela.html')">
-                            <img id="info" src="imagens/informacoes.png">
-                        </a>
-                    </abbr>
+                    <h2> Jogador </h2>
+                    <img src="imagens/smile.png">
                 </div>
             </div>
 
-            <div id="ceminterio">
-              <h2> Máquina </h2>
+          <div id="jogo">
+            <div class="ceminterio" id="ceminteriomaquina">
+              <h2> Máquina <img class="figura" src="imagens/robo.png"></h2>
               <ul>
                   <li id="P1"><img class="dead_ask" src="imagens/P.png"></li>
                   <li id="P2"><img class="dead_ask" src="imagens/P.png"></li>
@@ -139,8 +144,8 @@
               </table>
             </div>  
           
-            <div id="ceminterio2">
-              <h2> Humano </h2>
+            <div class="ceminterio" id="ceminteriohumano">
+              <h2> Humano <img class="figura" src="imagens/smile.png"></h2>
               <ul>
                   <li id="B1"><img class="dead_ask" src="imagens/B.png"></li>
                   <li id="B2"><img class="dead_ask" src="imagens/B.png"></li>
@@ -156,6 +161,7 @@
                   <li id="B12"><img class="dead_ask" src="imagens/B.png"></li>
               </ul>
             </div>
+            
           </div>
         </section>
     </body>
