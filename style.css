@@ -16,12 +16,10 @@ h1{
     font-family: 'Lucida Sans', sans-serif;
     font-size: xx-large;
     text-align: center;
-
     border-color: black;
     border-style: groove;
     margin-top: 2em;
     border-radius: 15px;
-
     margin-bottom: 10px;
     height: 3.5em;
 }
