@@ -1,4 +1,7 @@
-var peca = '<img src="imagens/black.png" height="42" width="42" style="vertical-align: middle;">';
-
-var pecawhite = '<img src="imagens/white.png" height="42" width="42" style="vertical-align: middle;">';
-
+function popup(URL) {
+  var width = 512;
+  var height = 350;
+  var left = 30;
+  var top = 50;
+  window.open(URL, 'janela', 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left + ', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+}
