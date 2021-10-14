@@ -321,7 +321,7 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
             return true;
 }
 
-function clickCelula(linPeça, colPeça){
+async function clickCelula(linPeça, colPeça){
       let idcelula = `${linPeça}${colPeça}`;
       let celula = document.getElementById(idcelula);
       let cor = celula.style.backgroundColor;
@@ -373,6 +373,7 @@ function clickCelula(linPeça, colPeça){
       } 
 
       if (rodadaHumano == false){
+            await sleep(1000);
             movimentoComputador();
       }
 }
@@ -519,4 +520,8 @@ function movimentoComputador(){
       }
 
       
+}
+
+function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
 }
