@@ -47,7 +47,7 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
                         
                   }
                   if (diferençaCol == 2){ //movimentou para esquerda
-                        comerPeça(linOrigem-1, colOrigem+1);
+                        comerPeça(linOrigem-1, colOrigem-1);
                   }
             }
       }else{
@@ -62,6 +62,7 @@ function comerPeça(linPeça, colPeça){
       removePeça(linPeça, colPeça);
       
       //mostra a peça na lista lateral
+      enviarParaCemiterio(peça);
 
 }
 
@@ -426,6 +427,28 @@ function alterarCorPossivelMovimento(linPeça, colPeça){
       let idcelula = `${linPeça}${colPeça}`;
       let celula = document.getElementById(idcelula);
       celula.style.backgroundColor = 'rgb(11, 202, 236)';
+}
+
+function enviarParaCemiterio(tipo){
+      let id ='';
+      if (tipo == 'DB' || tipo == 'DP'){
+            id = 'C'+tipo[1];
+      }
+      else{
+            id = 'C'+tipo;
+      }
+       
+      
+      let linha = document.createElement('li');
+
+      let peca = document.createElement('img');
+      peca.src = "imagens/"+tipo+".png"
+      peca.className = "dead_ask";
+
+      linha.appendChild(peca);
+
+      let lista = document.getElementById(id);
+      lista.appendChild(linha);
 }
 
 function movimentoComputador(){
