@@ -11,6 +11,9 @@ var tabuleiro=[
                   ['','','','','','','','','','']];            
 
 var rodadaHumano = true;
+var cemiterioBranco = 0;
+var cemiterioPreto = 0;
+var comeuPeçaPrev = false;
 
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
@@ -63,7 +66,8 @@ function comerPeça(linPeça, colPeça){
       
       //mostra a peça na lista lateral
       enviarParaCemiterio(peça);
-
+      verificarFimJogo();
+      comeuPeçaPrev = true;
 }
 
 function listaMovimentos(linPeça, colPeça){
@@ -361,10 +365,18 @@ async function clickCelula(linPeça, colPeça){
             console.log('moveu a peça');
             limpaSelecao();
             if (rodadaHumano == true){
-                  rodadaHumano = false;
+                  if (comeuPeçaPrev == true){
+                        comeuPeçaPrev = false;    
+                  }else{
+                        rodadaHumano = false;
+                  }  
             }
             else{
-                  rodadaHumano = true;
+                  if (comeuPeçaPrev == true){
+                        comeuPeçaPrev = false;    
+                  }else{
+                        rodadaHumano = true;
+                  } 
             }
       }
       else if (cor == 'rgb(11, 116, 236)'){ //azul está selecionado
@@ -439,7 +451,13 @@ function enviarParaCemiterio(tipo){
             id = 'C'+tipo;
       }
        
-      
+      if (id == 'CB'){
+            cemiterioBranco++;
+      }
+      else if (id == 'CP'){
+            cemiterioPreto++;
+      }
+
       let linha = document.createElement('li');
 
       let peca = document.createElement('img');
@@ -450,6 +468,14 @@ function enviarParaCemiterio(tipo){
 
       let lista = document.getElementById(id);
       lista.appendChild(linha);
+}
+
+function verificarFimJogo(){
+      if (cemiterioPreto == 12){
+            //ganhou
+      }else if (cemiterioBranco == 12){
+            //perdeu
+      }
 }
 
 function movimentoComputador(){
