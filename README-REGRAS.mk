@@ -10,7 +10,7 @@
 ## Regras de Movimentação:
 * A peça movimenta-se em diagonal, sobre as casas escuras, para a frente, e uma casa de cada vez.
 * A peça pode capturar a peça do adversário movendo-se para frente na diagonal.
-* A peça que atingir a oitava casa adversária, parando ali, será promovida a "dama", peça de movimentos mais amplos que a simples peça. Assinala-se a dama sobrepondo, à pedra promovida, outra da mesma cor
+* A peça que atingir a oitava casa adversária, parando ali, será promovida a "dama", peça de movimentos mais amplos que a simples peça. Assinala-se a dama sobrepondo, à pedra promovida, outra da mesma cor.
 * A dama pode mover-se para trás e para frente em diagonal uma casa de cada vez, diferente das outras peças, que movimentam-se apenas para frente em diagonal. A dama pode também tomar outra peça pela frente ou por trás em diagonal.
 * Quando na casa contígua a uma peça houver uma peça adversária, com uma casa imediata vaga, na mesma diagonal, a peça toma-la-á passando para a citada casa vaga. Se após a tomada de uma peça, a circunstância se repetir, a peça continuará a tomada no mesmo lance, chamando-se a este movimento tomada em cadeia.
 
@@ -21,7 +21,7 @@
 * As **brancas têm sempre a saída**, isto é, o primeiro lance da partida. Determina-se por sorteio ou convenção, para a primeira partida; nas seguintes, as brancas cabem alternadamente aos dois parceiros.
 * O lance é executado quando se leva diretamente à nova casa a peça tocada; a peça deve ser imediatamente solta.
 * O lance está completo quando a mão do jogador tiver largado a peça, ao movê-la de uma casa para outra.
-* Nota: se nenhuma dessas peças puder ser jogada legalmente, não haverá penalidade, entretanto, a reincidência é passível de punição.
+* **Nota**: se nenhuma dessas peças puder ser jogada legalmente, não haverá penalidade, entretanto, a reincidência é passível de punição.
 
 ## A partida termina com ganhador quando:
 Um dos lados elimina todas as peças do adversário.
