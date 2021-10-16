@@ -16,8 +16,22 @@
     <body>
         <section> 
             <h1><img src="imagens/rainha.png" width="40px">  Jogo de Damas <img src="imagens/rainha.png" width="40px"></h1>          
-          
-           
+
+            <div .class="popup">
+              <button class="trigger" id="buttonfim" onclick="showModal()">POPUPDADOFIM</button>
+              <div class="modal" id="modal">
+                  <div id="status" class="modal-content">
+                      <span class="close-button" onclick="closeModal()">
+                          &times;
+                      </span>
+                      <h1>""Parabéns você ganhou!!!"</h1> 
+                      <!-- "Poxa! Você Perdeu!" -->
+                      <!-- ""Parabéns você ganhou!!!" -->
+                      <img id="imagemfim" src="imagens/ganhou.png">
+                      <button id="restart" onclick="closeModal()" > Jogar novamente </button>
+                  </div>
+              </div>
+          </div>
               
             <div id="tools">
                

@@ -1,12 +1,13 @@
 *{
     text-decoration: none;
-    margin: 0;
-    padding: 0;
+    margin: 0em;
+    padding: 0em;
 }
 
 h1{
+    display: block;
     font-family: 'Amatic SC', cursive;
-    font-size: 55pt;
+    font-size: 60pt;
     text-align: center;
     margin: auto;
     margin-top: 0.3em;
@@ -14,7 +15,7 @@ h1{
 
 #tools{
     display: inline-flex;
-    margin: 0;
+    margin: 1em;
     flex-direction: row;
     position: absolute;
     left: 0em;
@@ -24,7 +25,7 @@ h1{
 #tools div{
     display: block;
     padding: 0.5em;
-    border: groove rgb(117, 57, 57);
+    border: groove #753939;
     border-radius: 15px;
     font-family: 'Amatic SC', cursive;
     text-align: center;
@@ -32,11 +33,11 @@ h1{
 
 #informacoes{
     font-size: x-small;
-    margin: 2em;
-    margin-left: 15px;
-    margin-top: 17px;
-    height: 80px;
-    width: 90px;
+    margin: 3vh;
+    margin-left: 8vh;
+    margin-top: 2vh;
+    height: 11vh;
+    width: 10vh;
 } 
 
 #informacoes abbr a img{
@@ -52,8 +53,8 @@ h1{
 
 #relogio{
     font-size: large;
-    margin: 15px;
-    margin-top: 17px;
+    margin: 3vh;
+    margin-top: 2vh;
     height: 75px;
     width: 75px;
 }
@@ -64,48 +65,43 @@ h1{
 
 #vez{
     font-size: large;
-    margin: 15px;
-    margin-top: 17px;
+    margin: 3vh;
+    margin-top: 2vh;
     height: 75px;
     width: 75px;
 } 
 
 #tools div img{
-    padding: 0.6em;
+    margin-top: 1vh;
     height: 30px;
     width: 30px;
 }
 
 #jogo{
     display: inline-flex; 
-    margin-bottom: 4em;
     margin: auto;
-    margin-top: 25px;
-    margin-left: 12em;
-
+    margin-left: 36vh;
 }
 
 .ceminterio{
-    border: 5px groove black; 
+    border: 5px groove #000000; 
     border-radius: 15px;
-    width: 150px;
-    height: 550px;
-    margin: 0;
-    margin-left: 3vw;
+    width: 20vh;
+    height: 70vh;
 }
 
 #ceminteriomaquina{
-    background-color: rgb(133, 122, 122);
+    background-color: #857a7a;
 }
 
 #ceminteriohumano{
-    background-color: rgb(175, 175, 175);
+    background-color: #afafaf;
 }
 
 h2{
-    margin-top: 10px;
+    margin-top: 0.4vh;
     font-family: 'Amatic SC', cursive;
-    font-size: 15pt;
+    font-size: 20pt;
     text-align: center;
 }
 
@@ -114,14 +110,13 @@ h2{
 }
 
 table{
-    border: 5px groove black;
+    border: 5px groove #000000;
     border-radius: 15px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    margin-right: 30px; 
+    margin-left: 5vh;
+    margin-right: 5vh; 
     table-layout: fixed;
-    width: 700px;
-    height: 560px;
+    width: 80vh;
+    height: 56vh;
 }
 
 tr, td{
@@ -130,28 +125,28 @@ tr, td{
 }
 
 tr{
-    border: 4px solid rgb(114, 113, 113);
+    border: 4px solid #727171;
     border-style: outset;
 }
 
 td {
-    border: 2px outset rgb(0, 0, 0);
+    border: 2px outset #000000;
     text-align: center;
     height: 60px;
     width: 60px;
 }
 
 .house_black{
-    background-color: rgb(100, 92, 92);
+    background-color: #645c5c;
 }
 
 .house_white{
-    background-color: rgb(175, 175, 175);
+    background-color: #afafaf;
 }
 
 .house_black:hover{
-    border: 2px solid rgb(34, 155, 40);
-    background-color:rgb(41, 173, 52);
+    border: 2px solid #229b28;
+    background-color:#29ad34;
 }
 
 .ask{
@@ -169,4 +164,84 @@ ul {
 .dead_ask{
     height: 35px;
     width: 35px;
+}
+
+
+/*********************************** POP-UP *****************************/
+.popup{
+    font-family: sans-serif;   
+    margin-bottom: 40em; 
+}
+.modal{ 
+    position: fixed;
+    top:0;
+    left:0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;   
+}
+
+.modal-content{
+    background-color: #ffffff;
+    padding: 16px 24px;    
+    width: 384px;
+    border-radius: 0.5rem;
+}
+.close-button{
+   float: right;
+   width: 24px;
+   line-height: 24px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 0.25rem;
+   background-color: #d3d3d3;
+}
+.close-button:hover{
+    background-color: #a9a9a9;
+}
+/*
+#buttonfim{
+    opacity: 0;
+    visibility: hidden;
+}*/
+
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);    
+}
+#status h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 35pt;
+    text-align: center;
+}
+#imagemfim{
+    width: 15vw;
+    margin-top: 3rem;
+    margin-left: 4rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+#restart{
+    display: block;
+    align-items: center;
+    background-color: #008000;
+    color: #ffffff;
+    padding: 0.7rem 3rem;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    border-radius: 4px;
+}
+#restart:hover{
+    background-color: #069e06;
 }
