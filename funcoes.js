@@ -369,6 +369,7 @@ async function clickCelula(linPeça, colPeça){
                         comeuPeçaPrev = false;    
                   }else{
                         rodadaHumano = false;
+                        mudarIconeRodada();
                   }  
             }
             else{
@@ -376,6 +377,7 @@ async function clickCelula(linPeça, colPeça){
                         comeuPeçaPrev = false;    
                   }else{
                         rodadaHumano = true;
+                        mudarIconeRodada();
                   } 
             }
       }
@@ -396,6 +398,24 @@ function removePeça(linPeça, colPeça){
       let elem = document.getElementById(id); 
       elem.parentNode.removeChild(elem);
       console.log('devia ter removido a peça');
+}
+
+function mudarIconeRodada(){
+      let imagem = '';
+      if (rodadaHumano == true){
+            imagem = 'smile';
+      }else{
+            imagem = 'robo';
+      }
+      let elem = document.getElementById('iconejogador'); 
+      elem.parentNode.removeChild(elem);
+      
+      let icone = document.createElement('img');
+      icone.id = 'iconejogador';
+      icone.src = "imagens/"+imagem+".png"
+      
+      let celula = document.getElementById('vez');
+      celula.appendChild(icone); 
 }
 
 function criaPeça(linPeça, colPeça, tipo){
