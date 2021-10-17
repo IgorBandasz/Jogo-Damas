@@ -490,14 +490,69 @@ function enviarParaCemiterio(tipo){
       lista.appendChild(linha);
 }
 
+/**Tentativaa de fazer funcionar o popup */
 function verificarFimJogo(){
+      let txt = '';
+      let imagem = '';
+      cemiterioPreto = 12;
+
       if (cemiterioPreto == 12){
-            //ganhou
+            txt= "Parabéns você ganhou!!!";
+            imagem = 'ganhou';
+            console.log("Passei no cemintério Preto ")
+            popup(txt, imagem);  
       }else if (cemiterioBranco == 12){
-            //perdeu
+           txt = "Poxa! Você Perdeu!";
+            imagem = 'perdeu';
+            popup(txt, imagem);  
+            console.log("Passei no cemintério Preto ")
       }
 }
 
+function popup(txt1, imagem1){
+        /* Texto */
+
+      let txt = txt1;
+      let imagem = imagem1;
+
+      let elem_text =document.getElementById('textodofim'); 
+      elem_text.parentNode.removeChild(elem_text);
+  
+      let texto = document.createElement('h1');
+      texto.className = 'txtfim';
+      texto.textContent = txt;
+  
+      let div = document.getElementById('status');
+      div.appendChild(texto); 
+  
+      /* Imagem */
+  
+      let elem = document.getElementById('imagemfim'); 
+      elem.parentNode.removeChild(elem);
+  
+      let icone = document.createElement('img');
+      icone.id = 'imagemfim';
+      icone.className = "imagemdopopup";
+      icone.src = "imagens/"+imagem+".png"
+  
+      let celula = document.getElementById('status');
+      celula.appendChild(icone); 
+  
+      /* Button */
+        
+      let elem_button = document.getElementById('restart'); 
+      elem_button.parentNode.removeChild(elem_button);
+    
+      let botao = document.createElement('button');
+      botao.id = 'restart';
+      botao.onclick = "closeModal()";
+      botao.textContent = "Jogar novamente";
+    
+      let button= document.getElementById('status');
+      console.log("Passei no Popup")
+      button.appendChild(botao); 
+}
+/** Fim da Tentativaa de fazer funcionar o popup */
 function movimentoComputador(){
       let quant = 0;
 

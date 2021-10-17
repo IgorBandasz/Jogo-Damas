@@ -18,18 +18,18 @@
             <h1><img src="imagens/rainha.png" width="40px">  Jogo de Damas <img src="imagens/rainha.png" width="40px"></h1>          
 
             <div .class="popup">
-              <button class="trigger" id="buttonfim" onclick="showModal()">POPUPDADOFIM</button>
+              <button class="trigger" id="buttonfim" onclick="showModal()"> POPUPDADOFIM </button>
               <div class="modal" id="modal">
-                  <div id="status" class="modal-content">
-                      <span class="close-button" onclick="closeModal()">
-                          &times;
-                      </span>
-                      <h1>""Parabéns você ganhou!!!"</h1> 
-                      <!-- "Poxa! Você Perdeu!" -->
-                      <!-- ""Parabéns você ganhou!!!" -->
-                      <img id="imagemfim" src="imagens/ganhou.png">
-                      <button id="restart" onclick="closeModal()" > Jogar novamente </button>
-                  </div>
+      
+                <div id="status" class="modal-content">
+                
+                  <h1 id="textodofim" class="txtfim"> "Poxa! Você Perdeu!" </h1> 
+                  <img id="imagemfim" class="imagemdopopup" src="imagens/perda.png">
+                 
+                  <button id="restart" onclick="closeModal()" > Jogar novamente </button>
+              
+                </div>
+
               </div>
           </div>
               
@@ -53,9 +53,11 @@
                     <h2> Jogador </h2>
                     <img id='iconejogador' src="imagens/smile.png">
                 </div>
+
             </div>
 
           <div id="jogo">
+            
             <div class="ceminterio" id="ceminteriomaquina">
               <h2> Máquina <img class="figura" src="imagens/robo.png"></h2>
               <ul id="CP">
@@ -156,6 +158,7 @@
             </div>
             
           </div>
+
         </section>
     </body>
   

@@ -207,11 +207,13 @@ ul {
 .close-button:hover{
     background-color: #a9a9a9;
 }
-/*
+
+/* DEICAR BUTTON INVISIVEL */ 
+
 #buttonfim{
     opacity: 0;
     visibility: hidden;
-}*/
+}
 
 .show-modal{
     opacity: 1;
