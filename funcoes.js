@@ -494,7 +494,6 @@ function enviarParaCemiterio(tipo){
 function verificarFimJogo(){
       let txt = '';
       let imagem = '';
-      cemiterioPreto = 12;
 
       if (cemiterioPreto == 12){
             txt= "Parabéns você ganhou!!!";
@@ -505,7 +504,7 @@ function verificarFimJogo(){
            txt = "Poxa! Você Perdeu!";
             imagem = 'perdeu';
             popup(txt, imagem);  
-            console.log("Passei no cemintério Preto ")
+            console.log("Passei no cemintério Branco ")
       }
 }
 
@@ -551,6 +550,8 @@ function popup(txt1, imagem1){
       let button= document.getElementById('status');
       console.log("Passei no Popup")
       button.appendChild(botao); 
+
+      showModal();
 }
 /** Fim da Tentativaa de fazer funcionar o popup */
 function movimentoComputador(){
