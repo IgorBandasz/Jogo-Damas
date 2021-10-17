@@ -15,8 +15,4 @@
     element.classList.add("show-modal");
   }
 
- //Fechar Modal
-  function closeModal() {
-    console.log("PASSEI AQUI PARA FECHAR")
-    window.location.reload();
-  }
+ 

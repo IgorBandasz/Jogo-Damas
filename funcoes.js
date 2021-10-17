@@ -544,7 +544,7 @@ function popup(txt1, imagem1){
     
       let botao = document.createElement('button');
       botao.id = 'restart';
-      botao.onclick = "closeModal()";
+      botao.onclick= closeModal;
       botao.textContent = "Jogar novamente";
     
       let button= document.getElementById('status');
@@ -553,6 +553,13 @@ function popup(txt1, imagem1){
 
       showModal();
 }
+
+//Fechar Modal
+function closeModal() {
+      console.log("PASSEI AQUI PARA FECHAR")
+      window.location.reload();
+}
+  
 /** Fim da Tentativaa de fazer funcionar o popup */
 function movimentoComputador(){
       let quant = 0;
