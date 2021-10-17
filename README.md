@@ -8,74 +8,115 @@
 
 ## ***Motivação e Objetivo:***
 
-A motivação desse projeto é realizar atividade da disciplina de Inteligencia Aritificial, utilizando os Agentes Reativos os quais observam o ambiente e executa uma ação e os Agente Reativo com Estados
-possui um armazenamento de alguma informação para que possa executar a ação, após a observação do ambiente. 
+A motivação desse projeto é realizar atividade da disciplina de Inteligencia Aritificial, utilizando os Agentes Reativos os quais observam o ambiente e executa uma ação e os Agente Reativo com Estados possui um armazenamento de alguma informação para que possa executar a ação, após a observação do ambiente. 
 
 
 ## ***Como foi desenvolvido:***
 
 ### Para Organização do trabalho:
 
-* **Google Meet** - para as reuniões semanais e alinhamento dos integrantes.
-* **Trello** - para organização das responsabilidade e acompanhamento do progresso de desenvolvimento.
-* **GitHub** - para acesso compartilhado dos códigos desenvolvidos.
+* **Google Meet**:   
+    Para as reuniões semanais e alinhamento dos integrantes.
+  
+* **Trello**:   
+  Para organização das responsabilidade e acompanhamento do progresso de desenvolvimento.
+  
+* **GitHub**:   
+  Para acesso compartilhado dos códigos desenvolvidos.
 
 
 ### Tecnologias utilizadas:
-#### *Front-End*:
-* **HTML5** - utilizada para marcação e organização dos espaços do jogo em tela.
-* **CSS** - em conjunto com o html auxiliando na aparência e estilo dos itens adicionados.
-* **Markdown** - utilizada para desenvolvimento do README.
+
+#### *Front-End*:   
+
+* **HTML5**:  
+  Utilizada para marcação e organização da estrutura do conteúdo do jogo em tela.
+  
+* **CSS**:   
+  Em conjunto com o html auxiliando na aparência e estilo dos itens adicionados.
+  
+* **Markdown:**    
+  Utilizada para desenvolvimento do README.
+  
 #### *Back- End*:
-* **JavaScript** - precisamente aqui é onde a mágica acontece, onde as regras dos jogo são traduzidas para a linguagem de programação.
+
+* **JavaScript:**   
+  Precisamente aqui é onde a mágica acontece, onde as regras dos jogo são traduzidas para a linguagem de programação.
+  
 #### *IDE*: 
-* **Visual Studio Code** - espaço para colocar a mão na massa no desenvolvimento do front e back end. 
+
+* **Visual Studio Code:**  
+  Espaço para colocar a mão na massa no desenvolvimento do front e back end. 
 
 ## ***Funcionalidades:***
 
 O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **Máquina**. Sabendo disso seguem as funcionalidades do sistema:
 
-1. **Organiza o Tabulheiro**
+* **Organiza o tabulheiro:**
 
-    A cada movimento que é realizado é feita uma atualização das posições atuais na matriz do tabuleiro, indicando as células livres e ocupadas.
+    A cada movimento que é realizado uma atualização das posições atuais na matriz do tabuleiro, indicando as células livres e ocupadas.
 
-2. **SORTEIA PEÇA MÁQUINA**
+* **Sorteia peça máquina:**
    
     Diferente do Humano que escolhe as suas próprias peças para movimentar, a máquina terá um sorteador para escolher qual a peça que será movida. 
 
-3. **VERIFICA MOVIMENTO LIVRE**
+* **Verifica movimento livre:**
 
     A implementação do nosso agente entra nesta parte, onde será realizada a análise no ambiente para a movimentação, sendo que:
-      1. peças **comuns** podem se mover somente para diagonal direita ou esquerda a sua frente;
-      2. peças **damas** podem se mover para ambas as diagonais e para frente e para trás.
+      1. Peças **Comuns** podem se mover somente para diagonal direita ou esquerda a sua frente;
+      2. Peças **Damas** podem se mover para ambas as diagonais e para frente e para trás.
  
     Ambas com casas imediatamente livres ou com peça inimiga e livre, sendo a segunda o objeto do nosso próximo item.
    
-4. **VERIFICA MOVIMENTO COMER**
+* **Verifica movimento comer:**
    
     Realizando a análise do ambiente e percebendo que existe uma peça inimiga e após um espaço livre, será obrigatório realizar este movimento. Por conta deste movimento, o jogador ganha o direito de fazer mais um movimento, podendo comer mais uma peça ou movimentar qualquer outra de suas peças.
 
     
-    ![md_sorteio](https://user-images.githubusercontent.com/87045785/137615477-cf256e0a-8f64-42f2-9217-f7544c7a417d.gif)
+    ![md_sorteio](https://user-images.githubusercontent.com/87045785/137643246-4e89ab9d-b722-4586-a51e-b555650510a5.gif)
 
 
-5. **RETIRAR PEÇA PARA O CEMITÉRIO**
+* **Retirar peça para o cemitério:**
    
-    Quando é realizado o movimento comer, o sistema retirará o ícone/peça do tabuleiro e colocará no ambiente cemitério do jogador que ganhou aquele lance.
+    Quando é realizado o movimento de tomada da peça adversária, o sistema retirará o ícone/peça do tabuleiro e colocará no ambiente cemitério do jogador que ganhou aquele lance.    
 
-    ![md_cemintério](https://user-images.githubusercontent.com/87045785/137615652-46706dee-694d-4174-b4a2-99f0e0b6d9c2.gif)
+    ![md_cemintério](https://user-images.githubusercontent.com/87045785/137643107-589d54e1-0cb3-4274-b6a3-015ec58db6bd.gif)
 
-6. **MONTAR DAMA**
+
+* **Montar Dama:**
    
     Verificando que a peça (preta/branca) tenha atravessado todo o tabuleiro até a última "linha" da área do oponente, o sistema retirará a peça comum e irá transformá-la em dama. Em resumo será feita uma troca de ícones.
 
-7. **MOSTRA RODADA**
+    ![md_tornandorainha](https://user-images.githubusercontent.com/87045785/137643045-e38627ff-d72e-4d75-a9dc-514ba0ba6c4a.gif)
+
+* **Mostrar rodada:**
 
     Na barra superior da página o jogado poderá conferir de quem é a rodada atual, podendo verificar que sendo:
    1. O emoji de um robozinho :robot: será a vez da máquina;
    2. Caso apareça este emoji :grinning: é do humano.
 
         ![md_vez](https://user-images.githubusercontent.com/87045785/137614609-6069a82b-5b85-41e8-bd4d-986f555cdf27.gif)
+
+* **Cronômetro**
+    
+    Há um cronômetro que é inicializado no momento no primeiro movimento realizado pelo Jogador Humano, este tem como objetivo cronometrar o tempo de jogo até a última tomada por um dos últimos jogadores.
+
+
+* **Duvidas e Sujestões**
+    
+    Há icone destinado a duvidas e sujestões. Ao ser selecionado é aberto uma nova aba com links de direcionamento.
+
+    * **Como jogar:**  
+    É direcionado para o Readme.md do projeto no Git Hub onde é descrito as Regras do Jogo.
+
+    * **Como foi desenvolvido:**  
+    É direcionado para o Readme.md do projeto no Git Hub onde é descrito as tecnologias e detalhes do desenvolvimento.
+
+    * **Entrar em Contato:**  
+    É direcionado para a aba de Issues do GitHub para que possa ser aberto alguma reclamação ou sujestão de melhoria.
+
+* **Final do Jogo:**   
+    Ao finalizar o jogo é apresentado um popup informando se o jogador Humano perdeu ou ganhou. Junto há um button para inciar um nova partida.
 
 
 ## ***Regras do Jogo:***
