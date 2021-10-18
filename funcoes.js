@@ -502,12 +502,12 @@ function verificarFimJogo(){
       let txt = '';
       let imagem = '';
 
-      if (cemiterioPreto == 1){
+      if (cemiterioPreto == 12){
             txt= "Parabéns você ganhou!!!";
             imagem = 'ganhou';
             console.log("Passei no cemintério Preto ")
             popup(txt, imagem);  
-      }else if (cemiterioBranco == 1){
+      }else if (cemiterioBranco == 12){
            txt = "Poxa! Você Perdeu!";
             imagem = 'perdeu';
             popup(txt, imagem);  
