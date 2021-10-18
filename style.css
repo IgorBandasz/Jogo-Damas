@@ -206,12 +206,12 @@ ul {
     background-color: #a9a9a9;
 }
 
-
+/*
 #buttonfim{
     opacity: 0;
     visibility: hidden;
 }
-
+*/
 .show-modal{
     opacity: 1;
     visibility: visible;

@@ -526,7 +526,7 @@ function verificarFimJogo(){
 function verificaEmpate(){
       if (movimentosSemComer == 20){
             txt = "Poxa! Você Empatou!";
-            imagem = 'empate';
+            imagem = 'empatou';
             popup(txt, imagem);  
             console.log("Empatou")
       }
