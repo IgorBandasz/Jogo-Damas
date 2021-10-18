@@ -11,15 +11,19 @@ var tabuleiro=[
                   ['','','','','','','','','','']];            
 
 var rodadaHumano = true;
+
 var cemiterioBranco = 0;
 var cemiterioPreto = 0;
 var comeuPeçaPrev = false;
+var movimentosSemComer = 0;
+
+
 
 let hour = 0;
 let minute = 0;
 let second = 0;
 let millisecond = 0;
-let cron;
+let cron
 
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
@@ -67,6 +71,7 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
 
 function comerPeça(linPeça, colPeça){
       //remove a peça adversaria e mostra a peça na lista lateral
+      movimentosSemComer = 0;
       let peça = tabuleiro[linPeça][colPeça];
       removePeça(linPeça, colPeça);
       
@@ -371,6 +376,7 @@ async function clickCelula(linPeça, colPeça){
 
             console.log('moveu a peça');
             limpaSelecao();
+            movimentosSemComer++;
             if (rodadaHumano == true){
                   if (comeuPeçaPrev == true){
                         comeuPeçaPrev = false;    
@@ -392,6 +398,8 @@ async function clickCelula(linPeça, colPeça){
             // retorna a cor da célula para nãoSelecionado
             limpaSelecao();
       } 
+
+      verificaEmpate();
 
       if (rodadaHumano == false){
             await sleep(1000);
@@ -508,10 +516,19 @@ function verificarFimJogo(){
             console.log("Passei no cemintério Preto ")
             popup(txt, imagem);  
       }else if (cemiterioBranco == 12     ){
-           txt = "Poxa! Você Perdeu!";
+            txt = "Poxa! Você Perdeu!";
             imagem = 'perdeu';
             popup(txt, imagem);  
             console.log("Passei no cemintério Branco ")
+      }
+}
+
+function verificaEmpate(){
+      if (movimentosSemComer == 20){
+            txt = "Poxa! Você Empatou!";
+            imagem = 'empate';
+            popup(txt, imagem);  
+            console.log("Empatou")
       }
 }
 
