@@ -542,6 +542,7 @@ function popup(txt1, imagem1){
       elem_text.parentNode.removeChild(elem_text);
   
       let texto = document.createElement('h1');
+      texto.id = "textodofim";
       texto.className = 'txtfim';
       texto.textContent = txt;
   

@@ -206,21 +206,22 @@ ul {
     background-color: #a9a9a9;
 }
 
-/*
+
 #buttonfim{
     opacity: 0;
     visibility: hidden;
 }
-*/
+
 .show-modal{
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);    
 }
-#status h1{
+#status #textodofim{
     font-family: 'Amatic SC', cursive;
     font-size: 35pt;
     text-align: center;
+    margin-left: 25px;
 }
 #imagemfim{
     width: 15vw;
