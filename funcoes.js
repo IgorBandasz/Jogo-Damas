@@ -507,7 +507,7 @@ function verificarFimJogo(){
             imagem = 'ganhou';
             console.log("Passei no cemintério Preto ")
             popup(txt, imagem);  
-      }else if (cemiterioBranco == 12){
+      }else if (cemiterioBranco == 12     ){
            txt = "Poxa! Você Perdeu!";
             imagem = 'perdeu';
             popup(txt, imagem);  
