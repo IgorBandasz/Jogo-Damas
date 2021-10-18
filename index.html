@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="imagens/rainha.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
         <script src="myscript.js"></script>
         <script src="funcoes.js"></script>
         <title> Damas </title>
@@ -12,45 +15,51 @@
     <body>
         <section> 
             <h1><img src="imagens/rainha.png" width="40px">  Jogo de Damas <img src="imagens/rainha.png" width="40px"></h1>          
-          
-            <div id="jogo">
+
+            <div .class="popup">
+              <button class="trigger" id="buttonfim" onclick="showModal()"> POPUPDADOFIM </button>
+              <div class="modal" id="modal">
+      
+                <div id="status" class="modal-content">
+                
+                  <h1 id="textodofim" class="txtfim"> "Poxa! Você Perdeu!" </h1> 
+                  <img id="imagemfim" class="imagemdopopup" src="imagens/perdeu.png">
+                 
+                  <button id="restart" onclick="closeModal()" > Jogar novamente </button>
+              
+                </div>
+
+              </div>
+          </div>
               
             <div id="tools">
-                <div id="relogio">
-                    <h2> Tempo </h2>
-                  <span>12:05</span>
-                </div>
-           
-                <div id="vez">
-                   <h2> Jogador </h2>
-                   <img id="info" src="imagens/smile.png">
-                </div>
-          
+               
                 <div id="informacoes">
-                    <abbr title="Duvidas e Sujestões"> 
-                     <h2> Duvidas e Sujestões </h2>
-                        <a onclick="javascript:popup('janela.html')">
-                            <img id="info" src="imagens/informacoes.png">
-                        </a>
-                    </abbr>
+                  <abbr title="Duvidas e Sujestões"> 
+                     <h2> Duvidas & Sujestões </h2>
+                     <a onclick="javascript:popupduvidaesujestoes('janela.html')"> <img src="imagens/informacoes.png">
+                     </a>
+                  </abbr>
                 </div>
+         
+                <div id="relogio">
+                  <h2> Tempo </h2>
+                  <span id="hora">00</span>:<span id="minuto">00</span>:<span id="segundo">00</span></span> 
+                </div>
+
+                <div id="vez">
+                    <h2> Jogador </h2>
+                    <img id='iconejogador' src="imagens/smile.png">
+                </div>
+
             </div>
 
-            <div id="ceminterio">
-              <h2> Máquina </h2>
-              <ul>
-                  <li id="P1"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P2"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P3"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P4"><img class="dead_ask" src="imagens/DP.png"></li>
-                  <li id="P5"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P6"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P7"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P8"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P9"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P10"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P11"><img class="dead_ask" src="imagens/P.png"></li>
-                  <li id="P12"><img class="dead_ask" src="imagens/P.png"></li>
+          <div id="jogo">
+            
+            <div class="ceminterio" id="ceminteriomaquina">
+              <h2> Máquina <img class="figura" src="imagens/robo.png"></h2>
+              <ul id="CP">
+                  
               </ul>
             </div>
           
@@ -122,7 +131,7 @@
                     <td class="house_white" id="23"></td>
                     <td class="house_black" id="24" onclick="clickCelula(2,4)"><img id="I24" class="ask" src="imagens/B.png"></td>
                     <td class="house_white" id="25"></td>
-                    <td class="house_black" id="26" onclick="clickCelula(2,6)"><img id="I27" class="ask" src="imagens/B.png"></td>
+                    <td class="house_black" id="26" onclick="clickCelula(2,6)"><img id="I26" class="ask" src="imagens/B.png"></td>
                     <td class="house_white" id="27"></td>
                     <td class="house_black" id="28" onclick="clickCelula(2,8)"><img id="I28" class="ask" src="imagens/B.png"></td>
                 </tr> 
@@ -139,24 +148,15 @@
               </table>
             </div>  
           
-            <div id="ceminterio2">
-              <h2> Humano </h2>
-              <ul>
-                  <li id="B1"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B2"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B3"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B4"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B5"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B6"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B7"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B8"><img class="dead_ask" src="imagens/DB.png"></li>
-                  <li id="B9"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B10"><img class="dead_ask" src="imagens/B.png"></li>
-                  <li id="B11"><img class="dead_ask" src="imagens/DB.png"></li>
-                  <li id="B12"><img class="dead_ask" src="imagens/B.png"></li>
+            <div class="ceminterio" id="ceminteriohumano">
+              <h2> Humano <img class="figura" src="imagens/smile.png"></h2>
+              <ul id="CB">
+                  
               </ul>
             </div>
+            
           </div>
+
         </section>
     </body>
   

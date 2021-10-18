@@ -11,19 +11,19 @@ var tabuleiro=[
                   ['','','','','','','','','','']];            
 
 var rodadaHumano = true;
-<<<<<<< Updated upstream
-=======
+
 var cemiterioBranco = 0;
 var cemiterioPreto = 0;
 var comeuPeçaPrev = false;
 var movimentosSemComer = 0;
 
+
+
 let hour = 0;
 let minute = 0;
 let second = 0;
 let millisecond = 0;
-let cron;
->>>>>>> Stashed changes
+let cron
 
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
@@ -60,7 +60,7 @@ function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
                         
                   }
                   if (diferençaCol == 2){ //movimentou para esquerda
-                        comerPeça(linOrigem-1, colOrigem+1);
+                        comerPeça(linOrigem-1, colOrigem-1);
                   }
             }
       }else{
@@ -76,7 +76,9 @@ function comerPeça(linPeça, colPeça){
       removePeça(linPeça, colPeça);
       
       //mostra a peça na lista lateral
-
+      enviarParaCemiterio(peça);
+      verificarFimJogo();
+      comeuPeçaPrev = true;
 }
 
 function listaMovimentos(linPeça, colPeça){
@@ -334,10 +336,11 @@ function verificaMovimentoObrigatorio(linPeça, colPeça){
             return true;
 }
 
-function clickCelula(linPeça, colPeça){
+async function clickCelula(linPeça, colPeça){
       let idcelula = `${linPeça}${colPeça}`;
       let celula = document.getElementById(idcelula);
       let cor = celula.style.backgroundColor;
+      cronometroStart();
       
       if (cor == ''){ //não está selecionado
             limpaSelecao();
@@ -375,10 +378,20 @@ function clickCelula(linPeça, colPeça){
             limpaSelecao();
             movimentosSemComer++;
             if (rodadaHumano == true){
-                  rodadaHumano = false;
+                  if (comeuPeçaPrev == true){
+                        comeuPeçaPrev = false;    
+                  }else{
+                        rodadaHumano = false;
+                        mudarIconeRodada();
+                  }  
             }
             else{
-                  rodadaHumano = true;
+                  if (comeuPeçaPrev == true){
+                        comeuPeçaPrev = false;    
+                  }else{
+                        rodadaHumano = true;
+                        mudarIconeRodada();
+                  } 
             }
       }
       else if (cor == 'rgb(11, 116, 236)'){ //azul está selecionado
@@ -389,6 +402,7 @@ function clickCelula(linPeça, colPeça){
       verificaEmpate();
 
       if (rodadaHumano == false){
+            await sleep(1000);
             movimentoComputador();
       }
 }
@@ -399,6 +413,24 @@ function removePeça(linPeça, colPeça){
       let elem = document.getElementById(id); 
       elem.parentNode.removeChild(elem);
       console.log('devia ter removido a peça');
+}
+
+function mudarIconeRodada(){
+      let imagem = '';
+      if (rodadaHumano == true){
+            imagem = 'smile';
+      }else{
+            imagem = 'robo';
+      }
+      let elem = document.getElementById('iconejogador'); 
+      elem.parentNode.removeChild(elem);
+      
+      let icone = document.createElement('img');
+      icone.id = 'iconejogador';
+      icone.src = "imagens/"+imagem+".png"
+      
+      let celula = document.getElementById('vez');
+      celula.appendChild(icone); 
 }
 
 function criaPeça(linPeça, colPeça, tipo){
@@ -445,8 +477,6 @@ function alterarCorPossivelMovimento(linPeça, colPeça){
       celula.style.backgroundColor = 'rgb(11, 202, 236)';
 }
 
-<<<<<<< Updated upstream
-=======
 function enviarParaCemiterio(tipo){
       let id ='';
       if (tipo == 'DB' || tipo == 'DP'){
@@ -557,7 +587,6 @@ function closeModal() {
 }
   
 /** Fim da Tentativaa de fazer funcionar o popup */
->>>>>>> Stashed changes
 function movimentoComputador(){
       let quant = 0;
 
@@ -626,4 +655,39 @@ function movimentoComputador(){
       }
 
       
+}
+
+function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function cronometroStart(){
+      cronometroPause();
+      cron = setInterval(() => { cronometroTimer(); }, 10);
+}
+
+function cronometroPause() {
+      clearInterval(cron);
+}
+
+function cronometroTimer() {
+      if ((millisecond += 10) == 1000) {
+            millisecond = 0;
+            second++;
+      }
+      if (second == 60) {
+        second = 0;
+        minute++;
+      }
+      if (minute == 60) {
+        minute = 0;
+        hour++;
+      }
+      document.getElementById('hora').innerText = returnData(hour);
+      document.getElementById('minuto').innerText = returnData(minute);
+      document.getElementById('segundo').innerText = returnData(second);
+}
+
+function returnData(input) {
+      return input > 10 ? input : `0${input}`
 }
