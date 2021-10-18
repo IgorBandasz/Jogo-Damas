@@ -101,7 +101,7 @@ function listaMovimentos(linPeça, colPeça){
                   movComer = true;
             }
 
-            if (movComer == false){
+            //if (movComer == false){
                   if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça+1, colPeça+1);
@@ -112,7 +112,7 @@ function listaMovimentos(linPeça, colPeça){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça+1, colPeça-1);
                   }   
-            }
+            //}
             
       }
       else if (peça == 'DB'){
@@ -142,7 +142,7 @@ function listaMovimentos(linPeça, colPeça){
                   movComer = true;
             }
 
-            if (movComer == false){
+            //if (movComer == false){
                   if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça+1, colPeça+1);
@@ -160,7 +160,7 @@ function listaMovimentos(linPeça, colPeça){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça-1, colPeça-1);
                   }
-            }
+            //}
       }
       else if (peça == 'P'){
             console.log('peça preta');
@@ -177,7 +177,7 @@ function listaMovimentos(linPeça, colPeça){
                   movComer = true;
             }
 
-            if (movComer == false){ 
+            //if (movComer == false){ 
                   if (tabuleiro[linPeça-1][colPeça+1] == 'L'){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça-1, colPeça+1);
@@ -186,7 +186,7 @@ function listaMovimentos(linPeça, colPeça){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça-1, colPeça-1);
                   }
-            }
+            //}
       }
       else if (peça == 'DP'){
             console.log('dama preta');
@@ -215,7 +215,7 @@ function listaMovimentos(linPeça, colPeça){
                   movComer = true;
             }
 
-            if (movComer == false){
+            //if (movComer == false){
                   if (tabuleiro[linPeça+1][colPeça+1] == 'L'){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça+1, colPeça+1);
@@ -233,7 +233,7 @@ function listaMovimentos(linPeça, colPeça){
                         //sinaliza mudando a cor da célula
                         alterarCorPossivelMovimento(linPeça-1, colPeça-1);
                   }
-            }
+            //}
       }
 }
 
@@ -346,26 +346,26 @@ async function clickCelula(linPeça, colPeça){
             limpaSelecao();
             
             if ((tabuleiro[linPeça][colPeça] == 'B' || tabuleiro[linPeça][colPeça] == 'DB') && rodadaHumano == true){ //rodada humano
-                  let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
+                  /*let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
                   if (permitido) {
-                        console.log('não há movimentos obrigatórios em outras células');
+                        console.log('não há movimentos obrigatórios em outras células');*/
                         celula.style.backgroundColor = 'rgb(11, 116, 236)';
                         listaMovimentos(linPeça, colPeça);
-                  }
+                  /*}
                   else{
                         console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
-                  }
+                  }*/
             }
             else if ((tabuleiro[linPeça][colPeça] == 'P' || tabuleiro[linPeça][colPeça] == 'DP') && rodadaHumano == false){ //rodada computador
-                  let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
+                  /*let permitido = verificaMovimentoObrigatorio(linPeça, colPeça); 
                   if (permitido) {
-                        console.log('não há movimentos obrigatórios em outras células');
+                        console.log('não há movimentos obrigatórios em outras células');*/
                         celula.style.backgroundColor = 'rgb(11, 116, 236)';
                         listaMovimentos(linPeça, colPeça);
-                  }
+                  /*}
                   else{
                         console.log('não pode movimentar essa peça por já há uma peça com movimento obrigatório');
-                  }
+                  }*/
             }
 
       }
