@@ -5,10 +5,12 @@
 }
 
 h1{
-    display: block;
+    display: inline;
     font-family: 'Amatic SC', cursive;
     font-size: 60pt;
     margin: auto;
+    margin-top: 50px;
+    margin-left: 495px;
 }
 
 #tools{

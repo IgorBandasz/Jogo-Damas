@@ -110,7 +110,7 @@ O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **M
     É direcionado para a aba de Issues do GitHub para que possa ser aberto alguma reclamação ou sujestão de melhoria.
 
 * **Final do Jogo:**
-    Ao finalizar o jogo é apresentado um popup informando se o jogador Humano perdeu ou ganhou. Junto há um button para inciar um nova partida.
+    Ao finalizar o jogo é apresentado um popup informando se o jogador Humano ganhou, perdeu e empate. Junto há um button para inciar um nova partida.
 
 ## ***Regras do Jogo:***
 
@@ -149,6 +149,11 @@ O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **M
 
 * Um dos lados elimina todas as peças do adversário.
 
-### Perde
+#### Perde
 
 * Um dos lados tem suas peças todas eliminadas.
+
+#### Empate
+
+* Quando é realizada 10 movimentações de um dos jogadores sem a tomada de nenhuma peça então o jogo é finalizado por Empate.
+  
