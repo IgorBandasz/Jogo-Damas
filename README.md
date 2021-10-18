@@ -8,7 +8,7 @@
 
 ## ***Motivação e Objetivo:***
 
-A motivação desse projeto é realizar atividade da disciplina de Inteligencia Aritificial, utilizando os Agentes Reativos os quais observam o ambiente e executa uma ação e os Agente Reativo com Estados possui um armazenamento de alguma informação para que possa executar a ação, após a observação do ambiente.
+A motivação desse projeto é realizar atividade da disciplina de Inteligencia Artificial, utilizando os Agentes Reativos os quais observam o ambiente e executa uma ação e os Agente Reativos com Estados possui um armazenamento de alguma informação para que possa executar a ação, após a observação do ambiente.
 
 ## ***Como foi desenvolvido:***
 
@@ -139,7 +139,6 @@ O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **M
 ### Demais Regras
 
 * A **tomada é obrigatória**. A Peça e a Dama têm o mesmo valor para tomar ou ser tomada.
-* Não será promovida a Peça que, numa tomada em cadeia, apenas passe pela oitava casa adversária.
 * As Peças tomadas só deverão ser retiradas do tabuleiro depois de completo o lance.
 * As **brancas têm sempre a saída**, isto é, o primeiro lance da partida.
 * O lance está completo quando O jogador tiver selecionado a casa da peça, e selecionar a casa destino movando-a para a casa destino.
