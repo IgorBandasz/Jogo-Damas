@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
         <script src="myscript.js"></script>
         <script src="funcoes.js"></script>
-        <script src="CRONOMETRO.js"></script>
         <title> Damas </title>
     </head>
     <body>
@@ -24,7 +23,7 @@
                 <div id="status" class="modal-content">
                 
                   <h1 id="textodofim" class="txtfim"> "Poxa! Você Perdeu!" </h1> 
-                  <img id="imagemfim" class="imagemdopopup" src="imagens/perda.png">
+                  <img id="imagemfim" class="imagemdopopup" src="imagens/perdeu.png">
                  
                   <button id="restart" onclick="closeModal()" > Jogar novamente </button>
               
@@ -43,9 +42,9 @@
                   </abbr>
                 </div>
          
-                 <div id="relogio">
-                    <h2> Tempo </h2>
-                  <span>12:05</span>
+                <div id="relogio">
+                  <h2> Tempo </h2>
+                  <span id="hora">00</span>:<span id="minuto">00</span>:<span id="segundo">00</span></span> 
                 </div>
 
                 <div id="vez">

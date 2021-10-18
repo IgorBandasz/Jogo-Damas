@@ -15,6 +15,12 @@ var cemiterioBranco = 0;
 var cemiterioPreto = 0;
 var comeuPeçaPrev = false;
 
+let hour = 0;
+let minute = 0;
+let second = 0;
+let millisecond = 0;
+let cron;
+
 function moverPeça(linOrigem, colOrigem, linDestino, colDestino){
       //faz o movimento da peça
       let peça = tabuleiro[linOrigem][colOrigem];
@@ -329,6 +335,7 @@ async function clickCelula(linPeça, colPeça){
       let idcelula = `${linPeça}${colPeça}`;
       let celula = document.getElementById(idcelula);
       let cor = celula.style.backgroundColor;
+      cronometroStart();
       
       if (cor == ''){ //não está selecionado
             limpaSelecao();
@@ -495,12 +502,12 @@ function verificarFimJogo(){
       let txt = '';
       let imagem = '';
 
-      if (cemiterioPreto == 12){
+      if (cemiterioPreto == 1){
             txt= "Parabéns você ganhou!!!";
             imagem = 'ganhou';
             console.log("Passei no cemintério Preto ")
             popup(txt, imagem);  
-      }else if (cemiterioBranco == 12){
+      }else if (cemiterioBranco == 1){
            txt = "Poxa! Você Perdeu!";
             imagem = 'perdeu';
             popup(txt, imagem);  
@@ -550,6 +557,8 @@ function popup(txt1, imagem1){
       let button= document.getElementById('status');
       console.log("Passei no Popup")
       button.appendChild(botao); 
+
+      cronometroPause();
 
       showModal();
 }
@@ -633,4 +642,35 @@ function movimentoComputador(){
 
 function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function cronometroStart(){
+      cronometroPause();
+      cron = setInterval(() => { cronometroTimer(); }, 10);
+}
+
+function cronometroPause() {
+      clearInterval(cron);
+}
+
+function cronometroTimer() {
+      if ((millisecond += 10) == 1000) {
+            millisecond = 0;
+            second++;
+      }
+      if (second == 60) {
+        second = 0;
+        minute++;
+      }
+      if (minute == 60) {
+        minute = 0;
+        hour++;
+      }
+      document.getElementById('hora').innerText = returnData(hour);
+      document.getElementById('minuto').innerText = returnData(minute);
+      document.getElementById('segundo').innerText = returnData(second);
+}
+
+function returnData(input) {
+      return input > 10 ? input : `0${input}`
 }
