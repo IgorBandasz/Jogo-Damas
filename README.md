@@ -66,10 +66,6 @@ O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **M
 
     Ambas com casas imediatamente livres ou com peça inimiga e livre, sendo a segunda o objeto do nosso próximo item.
 
-* **Verifica movimento comer:**
-
-    Realizando a análise do ambiente e percebendo que existe uma peça inimiga e após um espaço livre, será obrigatório realizar este movimento. Por conta deste movimento, o jogador ganha o direito de fazer mais um movimento, podendo comer mais uma peça ou movimentar qualquer outra de suas peças.
-
     ![md_sorteio](https://user-images.githubusercontent.com/87045785/137643246-4e89ab9d-b722-4586-a51e-b555650510a5.gif)
 
 * **Retirar peça para o cemitério:**
@@ -138,7 +134,6 @@ O jogo foi desenvolvido tal que um oponente será **Humano** e outro será a **M
 
 ### Demais Regras
 
-* A **tomada é obrigatória**. A Peça e a Dama têm o mesmo valor para tomar ou ser tomada.
 * As Peças tomadas só deverão ser retiradas do tabuleiro depois de completo o lance.
 * As **brancas têm sempre a saída**, isto é, o primeiro lance da partida.
 * O lance está completo quando O jogador tiver selecionado a casa da peça, e selecionar a casa destino movando-a para a casa destino.
